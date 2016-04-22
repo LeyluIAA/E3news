@@ -10,10 +10,15 @@ app.get('/', function (req, res) {
 app.get('/articles', function (req, res) {
 	  feed('http://www.jeuxvideo.com/rss/rss.xml', function(err, articles) {
 		  if (err) throw err;
-		  res.send('coucoucoucoucou');
-		  //response.push({title: articles.title, date: articles.published});
+		  // res.send('coucoucoucoucou');
+		  var nbArticle = articles.length;
+		  for (var i = 0; i <= nbArticle - 1; i++) {
+		    console.log('title:', articles[i].title);
+		    console.log('published:', articles[i].published);
+		  }
+		  // response.push({title: articles.title, date: articles.published});
 		  // Each article has the following properties:
-		  // 
+		  //
 		  //   * "title"     - The article title (String).
 		  //   * "author"    - The author's name (String).
 		  //   * "link"      - The original article link (String).
