@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/LeyluIAA/E3news/issues"
   },
-  "homepage": "https://github.com/LeyluIAA/E3news#readme"
+  "homepage": "https://github.com/LeyluIAA/E3news#readme",
+  "devDependencies": {
+    "feed": "^0.3.0"
+  }
 }
