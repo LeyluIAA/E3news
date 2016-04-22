@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/LeyluIAA/E3news#readme",
   "devDependencies": {
-    "feed": "^0.3.0"
+    "express": "^4.13.4",
+    "feed-read": "0.0.1"
   }
 }
