@@ -3,19 +3,25 @@ var feed = require('feed-read');
 var express = require('express');
 var app = express();
 
+app.set('views', './views');
+app.set('view engine', 'jade');
+
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  //res.send('Hello World!');
+  res.render('index', { title: 'Hey', message: 'Hello there!'});
 });
 
 app.get('/articles', function (req, res) {
-	  feed('http://www.jeuxvideo.com/rss/rss.xml', function(err, articles) {
+	var tab = [];
+	feed('http://www.jeuxvideo.com/rss/rss.xml', function(err, articles) {
 		  if (err) throw err;
-		  // res.send('coucoucoucoucou');
 		  var nbArticle = articles.length;
 		  for (var i = 0; i <= nbArticle - 1; i++) {
 		    console.log('title:', articles[i].title);
 		    console.log('published:', articles[i].published);
+		    tab.push({title: articles[i].title, published: articles[i].published});
 		  }
+		  res.send(tab);
 		  // response.push({title: articles.title, date: articles.published});
 		  // Each article has the following properties:
 		  //
@@ -25,7 +31,7 @@ app.get('/articles', function (req, res) {
 		  //   * "content"   - The HTML content of the article (String).
 		  //   * "published" - The date that the article was published (Date).
 		  //   * "feed"      - {name, source, link}
-  	  });
+  	});
 });
 
 app.listen(3000, function () {

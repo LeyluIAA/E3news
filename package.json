@@ -19,5 +19,8 @@
   "devDependencies": {
     "express": "^4.13.4",
     "feed-read": "0.0.1"
+  },
+  "dependencies": {
+    "jade": "^1.11.0"
   }
 }
