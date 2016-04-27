@@ -1,5 +1,32 @@
 html
   head
     title!= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    meta(charset='utf-8')
   body
-    h1!= message
+block content
+  div.top
+    form.form-horizontal(method="post", id="loginForm")
+      label Username
+      input.span3(id="username", type="text", name="User", placeholder="Enter your username")
+      label Password
+      input.span3(id="password", type="password", name="Password")
+      input.btn(type="submit", value="Log In")
+  div.container
+    div.content
+      table.table.table-striped
+        thead
+          tr
+            th Table
+            th Heading
+        tbody
+          tr
+            td Blah
+            td Test
+          tr
+            td Hello
+            td World
+ 
+  div.footer

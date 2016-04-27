@@ -8,7 +8,7 @@ app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
   //res.send('Hello World!');
-  res.render('index', { title: 'Hey', message: 'Hello there!'});
+  res.render('index', { title: 'E3 news', message: 'E3 2016!'});
 });
 
 app.get('/articles', function (req, res) {
