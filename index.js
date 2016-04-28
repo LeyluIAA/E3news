@@ -1,30 +1,30 @@
 const http = require('http');
 var feed = require('feed-read');
 var express = require('express');
+var dateFormat = require('dateformat');
+
+
 var app = express();
 
 app.set('views', './views');
 app.set('view engine', 'jade');
 
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
   //res.send('Hello World!');
   res.render('index', { title: 'E3 news', message: 'E3 2016!'});
-});
+});*/
 
-app.get('/articles', function (req, res) {
+app.get('/', function (req, res) {
 	var tab = [];
 	feed('http://www.jeuxvideo.com/rss/rss.xml', function(err, articles) {
 		  if (err) throw err;
-		  var nbArticle = articles.length;
-		  for (var i = 0; i <= nbArticle - 1; i++) {
-		    console.log('title:', articles[i].title);
-		    console.log('published:', articles[i].published);
-		    tab.push({title: articles[i].title, published: articles[i].published});
+		  var articles_length = articles.length;
+		  for (var i = 0; i < articles_length; i++) {
+		  	var publication = dateFormat(articles[i].published, "dd/mm/yyyy hh:MM:ss");
+		  	articles[i].published = publication;
 		  }
-		  res.send(tab);
-		  // response.push({title: articles.title, date: articles.published});
+		  res.render('index', {articles: articles});
 		  // Each article has the following properties:
-		  //
 		  //   * "title"     - The article title (String).
 		  //   * "author"    - The author's name (String).
 		  //   * "link"      - The original article link (String).

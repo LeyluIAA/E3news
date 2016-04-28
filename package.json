@@ -21,6 +21,8 @@
     "feed-read": "0.0.1"
   },
   "dependencies": {
+    "dateformat": "^1.0.12",
+    "fs": "0.0.2",
     "jade": "^1.11.0"
   }
 }

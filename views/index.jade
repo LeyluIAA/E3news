@@ -1,3 +1,4 @@
+doctype html
 html
   head
     title!= title
@@ -7,26 +8,26 @@ html
     meta(charset='utf-8')
   body
 block content
-  div.top
-    form.form-horizontal(method="post", id="loginForm")
-      label Username
-      input.span3(id="username", type="text", name="User", placeholder="Enter your username")
-      label Password
-      input.span3(id="password", type="password", name="Password")
-      input.btn(type="submit", value="Log In")
+    nav.navbar.navbar-default
+        .container-fluid
+            .navbar-header
+                p.navbar-brand E3 News
+                p.navbar-text Toute l'actu de l'E3 en direct
   div.container
     div.content
       table.table.table-striped
         thead
           tr
-            th Table
-            th Heading
+            th News
+            th Description
+            th Date
+            th Source
         tbody
-          tr
-            td Blah
-            td Test
-          tr
-            td Hello
-            td World
- 
+            each article in articles
+                tr
+                    td: a(href="#{article.link}" target="_blank") #{article.title}
+                    td= article.content
+                    td= article.published
+                    td= article.feed.name
+
   div.footer
