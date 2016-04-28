@@ -3,7 +3,6 @@ var feed = require('feed-read');
 var express = require('express');
 var dateFormat = require('dateformat');
 
-
 var app = express();
 
 app.set('views', './views');
@@ -20,7 +19,7 @@ app.get('/', function (req, res) {
 		  if (err) throw err;
 		  var articles_length = articles.length;
 		  for (var i = 0; i < articles_length; i++) {
-		  	var publication = dateFormat(articles[i].published, "dd/mm/yyyy hh:MM:ss");
+		  	var publication = dateFormat(articles[i].published, "dd/mm/yyyy HH:MM:ss");
 		  	articles[i].published = publication;
 		  }
 		  res.render('index', {articles: articles});
@@ -35,5 +34,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('E3 News listening on port 3000!');
 });
