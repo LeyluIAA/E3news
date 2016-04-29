@@ -1,34 +1,26 @@
 # E3news
 
+E3news is an RSS aggregator to feed news about several video games sources.
+
 # Prerequisites
 
-Install Postgresql-9.1
+In order to self hosted your E3 News app, you have to install:
+
+- git
+- npm
 
 ``` shell
-
-$ sudo apt-get install postgresql-9.1 postgresql-client-9.1
-$ sudo -i -u postgres
-postgres $ psql
-postgres=# CREATE USER <user>;
-postgres=# ALTER USER <user> WITH ENCRYPTED PASSWORD 'password'; 
-postgres=# ALTER ROLE <user> WITH CREATEDB;
-postgres=# CREATE DATABASE expo OWNER <user>;
-postgres=# \q
+$ git clone https://github.com/LeyluIAA/E3news.git
+$ cd E3news
+$ npm install
 
 ```
 
-Create the right table
+# Launch
+
+Just run
 
 ``` shell
-$ psql expo
-expo=> CREATE TABLE news (
-title  varchar(50),
-description varchar(100),
-link varchar(80),
-image varchar(80),
-copyright varchar(80),
-updated date,
-author varchar(80)
-);
+$ node index.js
 
 ```

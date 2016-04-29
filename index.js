@@ -8,11 +8,6 @@ var app = express();
 app.set('views', './views');
 app.set('view engine', 'jade');
 
-/*app.get('/', function (req, res) {
-  //res.send('Hello World!');
-  res.render('index', { title: 'E3 news', message: 'E3 2016!'});
-});*/
-
 app.get('/', function (req, res) {
 	var tab = [];
 	feed('http://www.jeuxvideo.com/rss/rss.xml', function(err, articles) {
