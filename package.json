@@ -1,7 +1,7 @@
 {
   "name": "e3news",
-  "version": "0.0.1",
-  "description": "feed and metrics for E3 2016",
+  "version": "0.1.0",
+  "description": "feed for E3 2016",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,13 +16,10 @@
     "url": "https://github.com/LeyluIAA/E3news/issues"
   },
   "homepage": "https://github.com/LeyluIAA/E3news#readme",
-  "devDependencies": {
-    "express": "^4.13.4",
-    "feed-read": "0.0.1"
-  },
   "dependencies": {
-    "dateformat": "^1.0.12",
-    "fs": "0.0.2",
-    "jade": "^1.11.0"
+    "express": "^4.13.4",
+    "feed-read": "0.0.1",
+    "jade": "^1.11.0",
+    "moment": "^2.13.0"
   }
 }

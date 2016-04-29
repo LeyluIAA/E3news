@@ -1,7 +1,7 @@
 const http = require('http');
 var feed = require('feed-read');
 var express = require('express');
-var dateFormat = require('dateformat');
+var moment = require('moment');
 
 var app = express();
 
@@ -14,8 +14,10 @@ app.get('/', function (req, res) {
 		  if (err) throw err;
 		  var articles_length = articles.length;
 		  for (var i = 0; i < articles_length; i++) {
-		  	var publication = dateFormat(articles[i].published, "dd/mm/yyyy HH:MM:ss");
-		  	articles[i].published = publication;
+		  	//var publication = moment(articles[i].published).format("dd/mm/yyyy HH:MM:ss").substract(1, 'hours');
+            var publication = moment(articles[i].published).subtract(1, 'hours');
+		  	articles[i].published = publication.format("DD/MM/YYYY HH:mm:ss");
+            console.log(publication);
 		  }
 		  res.render('index', {articles: articles});
 		  // Each article has the following properties:
