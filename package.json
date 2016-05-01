@@ -1,6 +1,6 @@
 {
   "name": "e3news",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "feed for E3 2016",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "express": "^4.13.4",
     "feed-read": "0.0.1",
     "jade": "^1.11.0",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "sort-array": "^1.1.0"
   }
 }

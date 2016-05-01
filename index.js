@@ -2,6 +2,7 @@ const http = require('http');
 var feed = require('feed-read');
 var express = require('express');
 var moment = require('moment');
+var sortBy = require('sort-array');
 
 var app = express();
 
@@ -10,7 +11,7 @@ app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
 	
-    var rss = ['http://www.jeuxvideo.com/rss/rss.xml', 'http://www.gameblog.fr/rss.php'],
+    var rss = ['http://www.jeuxvideo.com/rss/rss.xml', 'http://www.gameblog.fr/rss.php', 'http://www.eurogamer.net/?format=rss', 'http://www.gamekult.com/feeds/actu.html', 'http://fr.ign.com/feed.xml'],
         tab = [];
 
     feed(rss, function(err, articles) {
@@ -27,6 +28,9 @@ app.get('/', function (req, res) {
 		  }
           console.log('articles', articles);
           tab = articles;
+
+          sortBy(tab, 'published');
+          tab.reverse();
           res.render('index', {articles: tab});
           // Each article has the following properties:
           //   * "title"     - The article title (String).
