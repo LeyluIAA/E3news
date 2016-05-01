@@ -6,6 +6,8 @@ var sortBy = require('sort-array');
 
 var app = express();
 
+app.use('/static', express.static('public'));
+
 app.set('views', './views');
 app.set('view engine', 'jade');
 

@@ -1,0 +1,26 @@
+@font-face {
+    font-family: open_24;
+    src: url(open_24.ttf);
+}
+
+.banniere {
+    background-color: #7698B2;
+    color: white;
+    font-family: open_24;
+}
+
+.slogan {
+    font-size: 18px;
+}
+
+.corpus {
+    background-color: #FFF3F3;
+}
+
+.navbar-brand-e3 {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 25px;
+    line-height: 20px;
+}

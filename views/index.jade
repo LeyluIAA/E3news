@@ -4,31 +4,30 @@ html
     title!= title
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='static/style.css')
     script(src='https://code.jquery.com/jquery-2.2.3.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
     meta(charset='utf-8')
-  body
+  body.corpus
 block content
-    nav.navbar.navbar-default
+    nav.navbar.banniere
         .container-fluid
             .navbar-header
-                p.navbar-brand E3 News
-                p.navbar-text Toute l'actu de l'E3 en direct
+                p.navbar-brand-e3 E3 News
+                p.navbar-text.slogan Toute l'actu de l'E3 en direct
   div.container
     div.content
-      table.table.table-striped
+      table.table.table-hover
         thead
           tr
-            th News
-            th Description
             th Date
+            th News
             th Source
         tbody
             each article in articles
                 tr
+                    td= td= article.published
                     td: a(href="#{article.link}" target="_blank") #{article.title}
-                    td= article.content
-                    td= article.published
                     td= article.feed.name
 
   div.footer
