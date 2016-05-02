@@ -2,6 +2,7 @@ const http = require('http');
 var feed = require('feed-read');
 var express = require('express');
 var moment = require('moment');
+var async = require('async');
 
 var app = express();
 
@@ -13,46 +14,117 @@ app.set('view engine', 'jade');
 app.get('/', function (req, res) {
 
     var rss = ['http://www.jeuxvideo.com/rss/rss.xml', 'http://www.gameblog.fr/rss.php', 'http://www.eurogamer.net/?format=rss', 'http://www.gamekult.com/feeds/actu.html', 'http://fr.ign.com/feed.xml'],
-        tab = [];
+        tab = {jv: [], gb: [], eg: [], gk:[], in:[]};
 
-    feed(rss, function(err, articles) {
+    async.parallel([
+        function(callback) {
+            feed(rss[0], function(err, articles) {
+                if (err) throw err;
 
-          if (err) throw err;
+                var articles_length = articles.length;
 
-          var articles_length = articles.length;
+                for (var i = 0; i < articles_length; i++) {
 
-          for (var i = 0; i < articles_length; i++) {
+                    var publication = moment(articles[i].published).subtract(1, 'hours');
+                    articles[i].published = publication;
+                }
+                tab.jv = articles;
+                callback();
+            });
+        },
+        function(callback) {
+            feed(rss[1], function(err, articles) {
 
-            var publication = moment(articles[i].published).subtract(1, 'hours');
-		  	    articles[i].published = publication.format("DD/MM/YYYY HH:mm:ss");
+                if (err) throw err;
 
-		      }
-          console.log('articles', articles);
-          tab = articles;
+                var articles_length = articles.length;
 
-          var tab_length = tab.length;
-          while (tab_length > 0) {
-            for (var i = 0; i < tab_length - 1 ; i++) {
-                if(moment(tab[i].published).isBefore(tab[i+1].published)) {
-                    var temp = tab[i+1];
-                    tab[i+1] = tab[i];
-                    tab[i] = temp;
+                for (var i = 0; i < articles_length; i++) {
+
+                    var publication = moment(articles[i].published).subtract(1, 'hours');
+                    articles[i].published = publication;
+
+                }
+                tab.gb = articles;
+                callback();
+            });
+        },
+        function(callback) {
+            feed(rss[2], function(err, articles) {
+
+                if (err) throw err;
+
+                var articles_length = articles.length;
+
+                for (var i = 0; i < articles_length; i++) {
+
+                    var publication = moment(articles[i].published).subtract(1, 'hours');
+                    articles[i].published = publication;
+
+                }
+                tab.eg = articles;
+                callback();
+            });
+        },
+        function(callback) {
+            feed(rss[3], function(err, articles) {
+
+                if (err) throw err;
+
+                var articles_length = articles.length;
+
+                for (var i = 0; i < articles_length; i++) {
+
+                    var publication = moment(articles[i].published).subtract(1, 'hours');
+                    articles[i].published = publication;
+
+                }
+                tab.gk = articles;
+                callback();
+            });
+        },
+        function(callback) {
+            feed(rss[4], function(err, articles) {
+
+                if (err) throw err;
+
+                var articles_length = articles.length;
+
+                for (var i = 0; i < articles_length; i++) {
+
+                    var publication = moment(articles[i].published).subtract(1, 'hours');
+                    articles[i].published = publication;
+
+                }
+                tab.in = articles;
+                callback();
+            });
+        }
+    ], function(err) {
+        var array = tab.jv.concat(tab.gb);
+        array = array.concat(tab.eg);
+        array = array.concat(tab.gk);
+        array = array.concat(tab.in);
+        var array_length = array.length;
+        while (array_length > 0) {
+            for (var i = 0; i < array_length - 1 ; i++) {
+                if(moment(array[i].published).isBefore(array[i+1].published)) {
+                    var temp = array[i+1];
+                    array[i+1] = array[i];
+                    array[i] = temp;
                 }
             }
-            tab_length--;
-          }
-
-          //sortBy(tab, 'published');
-          //tab.reverse();
-          res.render('index', {articles: tab});
-          // Each article has the following properties:
-          //   * "title"     - The article title (String).
-          //   * "author"    - The author's name (String).
-          //   * "link"      - The original article link (String).
-          //   * "content"   - The HTML content of the article (String).
-          //   * "published" - The date that the article was published (Date).
-          //   * "feed"      - {name, source, link}
+            array_length--;
+        }
+        array_length = array.length;
+        for(var i = 0; i < array_length; i++) {
+            var new_date = array[i].published.format('DD/MM/YYYY HH:mm:ss');
+            array[i].published = new_date;
+        }
+        res.render('index', {articles: array});
     });
+
+
 });
 
 
@@ -60,3 +132,5 @@ app.get('/', function (req, res) {
 app.listen(3000, function () {
   console.log('E3 News listening on port 3000!');
 });
+
+//format("DD/MM/YYYY HH:mm:ss");
