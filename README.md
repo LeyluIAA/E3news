@@ -2,12 +2,7 @@
 
 E3news is an RSS aggregator to feed news about several video games sources.
 
-# Prerequisites
-
-In order to self hosted your E3 News app, you have to install:
-
-- git
-- npm
+# Install
 
 ``` shell
 $ git clone https://github.com/LeyluIAA/E3news.git
@@ -17,8 +12,6 @@ $ npm install
 ```
 
 # Launch
-
-Just run
 
 ``` shell
 $ node index.js
