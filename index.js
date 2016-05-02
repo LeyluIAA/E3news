@@ -2,7 +2,6 @@ const http = require('http');
 var feed = require('feed-read');
 var express = require('express');
 var moment = require('moment');
-var sortBy = require('sort-array');
 
 var app = express();
 
@@ -12,27 +11,39 @@ app.set('views', './views');
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
-	
+
     var rss = ['http://www.jeuxvideo.com/rss/rss.xml', 'http://www.gameblog.fr/rss.php', 'http://www.eurogamer.net/?format=rss', 'http://www.gamekult.com/feeds/actu.html', 'http://fr.ign.com/feed.xml'],
         tab = [];
 
     feed(rss, function(err, articles) {
-		  
+
           if (err) throw err;
-		  
+
           var articles_length = articles.length;
-		  
+
           for (var i = 0; i < articles_length; i++) {
 
             var publication = moment(articles[i].published).subtract(1, 'hours');
-		  	articles[i].published = publication.format("DD/MM/YYYY HH:mm:ss");
+		  	    articles[i].published = publication.format("DD/MM/YYYY HH:mm:ss");
 
-		  }
+		      }
           console.log('articles', articles);
           tab = articles;
 
-          sortBy(tab, 'published');
-          tab.reverse();
+          var tab_length = tab.length;
+          while (tab_length > 0) {
+            for (var i = 0; i < tab_length - 1 ; i++) {
+                if(moment(tab[i].published).isBefore(tab[i+1].published)) {
+                    var temp = tab[i+1];
+                    tab[i+1] = tab[i];
+                    tab[i] = temp;
+                }
+            }
+            tab_length--;
+          }
+
+          //sortBy(tab, 'published');
+          //tab.reverse();
           res.render('index', {articles: tab});
           // Each article has the following properties:
           //   * "title"     - The article title (String).
