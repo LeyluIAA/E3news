@@ -2,6 +2,7 @@ doctype html
 html
   head
     title!= title
+    link(rel='icon', type='image/png', href='static/favicon.ico')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='static/style.css')
@@ -20,14 +21,19 @@ block content
       table.table.table-default
         thead
           tr
+            th Source
             th Date
             th News
-            th Source
         tbody
             each article in articles
                 tr
+                    case article.feed.name
+                        when "jeuxvideo.com": td: img(src="static/jvcom.png" height="50" width="50")
+                        when "IGN France": td: img(src="static/ign.png" height="50" width="50")
+                        when "Gameblog": td: img(src="static/test.jpg" height="50" width="50")
+                        when "Eurogamer.net": td: img(src="static/eurog.png" height="50" width="50")
+                        default: td: img(src="static/gkult.png" height="50" width="50")
                     td= td= article.published
                     td: a(href="#{article.link}" target="_blank" class="link") #{article.title}
-                    td= article.feed.name
 
   div.footer

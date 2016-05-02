@@ -118,7 +118,7 @@ app.get('/', function (req, res) {
         }
         array_length = array.length;
         for(var i = 0; i < array_length; i++) {
-            var new_date = array[i].published.format('DD/MM/YYYY HH:mm:ss');
+            var new_date = array[i].published.format('dddd D MMM HH:mm');
             array[i].published = new_date;
         }
         res.render('index', {articles: array});
