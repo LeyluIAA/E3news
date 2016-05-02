@@ -17,7 +17,7 @@ block content
                 p.navbar-text.slogan Toute l'actu de l'E3 en direct
   div.container
     div.content
-      table.table.table-hover
+      table.table.table-default
         thead
           tr
             th Date
@@ -27,7 +27,7 @@ block content
             each article in articles
                 tr
                     td= td= article.published
-                    td: a(href="#{article.link}" target="_blank") #{article.title}
+                    td: a(href="#{article.link}" target="_blank" class="link") #{article.title}
                     td= article.feed.name
 
   div.footer
