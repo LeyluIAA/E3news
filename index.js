@@ -3,8 +3,9 @@ var feed = require('feed-read');
 var express = require('express');
 var moment = require('moment');
 var async = require('async');
-
 var app = express();
+
+app.set('port', (process.env.PORT || 5000));
 
 app.use('/static', express.static('public'));
 
@@ -129,8 +130,6 @@ app.get('/', function (req, res) {
 
 
 
-app.listen(3000, function () {
-  console.log('E3 News listening on port 3000!');
+app.listen(app.get('port'), function() {
+  console.log('E3 news is running on port', app.get('port'));
 });
-
-//format("DD/MM/YYYY HH:mm:ss");
