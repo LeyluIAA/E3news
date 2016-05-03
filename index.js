@@ -3,6 +3,10 @@ var feed = require('feed-read');
 var express = require('express');
 var moment = require('moment');
 var async = require('async');
+
+/**
+ * App declaration
+ */
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -12,14 +16,22 @@ app.use('/static', express.static('public'));
 app.set('views', './views');
 app.set('view engine', 'jade');
 
+/**
+ * RSS feed logic
+ */
 app.get('/', function (req, res) {
 
-    var rss = ['http://www.jeuxvideo.com/rss/rss.xml', 'http://www.gameblog.fr/rss.php', 'http://www.eurogamer.net/?format=rss', 'http://www.gamekult.com/feeds/actu.html', 'http://fr.ign.com/feed.xml'],
-        tab = {jv: [], gb: [], eg: [], gk:[], in:[]};
+    var rss = [
+        'http://www.jeuxvideo.com/rss/rss.xml',
+        'http://www.gameblog.fr/rss.php',
+        'http://www.gamekult.com/feeds/actu.html',
+        'http://fr.ign.com/feed.xml'
+    ];
 
+    // Asynchrone requests to get faster results
     async.parallel([
         function(callback) {
-            feed(rss[0], function(err, articles) {
+            feed(rss, function(err, articles) {
                 if (err) throw err;
 
                 var articles_length = articles.length;
@@ -29,106 +41,33 @@ app.get('/', function (req, res) {
                     var publication = moment(articles[i].published).subtract(1, 'hours');
                     articles[i].published = publication;
                 }
-                tab.jv = articles;
-                callback();
-            });
-        },
-        function(callback) {
-            feed(rss[1], function(err, articles) {
-
-                if (err) throw err;
-
-                var articles_length = articles.length;
-
-                for (var i = 0; i < articles_length; i++) {
-
-                    var publication = moment(articles[i].published).subtract(1, 'hours');
-                    articles[i].published = publication;
-
-                }
-                tab.gb = articles;
-                callback();
-            });
-        },
-        function(callback) {
-            feed(rss[2], function(err, articles) {
-
-                if (err) throw err;
-
-                var articles_length = articles.length;
-
-                for (var i = 0; i < articles_length; i++) {
-
-                    var publication = moment(articles[i].published).subtract(1, 'hours');
-                    articles[i].published = publication;
-
-                }
-                tab.eg = articles;
-                callback();
-            });
-        },
-        function(callback) {
-            feed(rss[3], function(err, articles) {
-
-                if (err) throw err;
-
-                var articles_length = articles.length;
-
-                for (var i = 0; i < articles_length; i++) {
-
-                    var publication = moment(articles[i].published).subtract(1, 'hours');
-                    articles[i].published = publication;
-
-                }
-                tab.gk = articles;
-                callback();
-            });
-        },
-        function(callback) {
-            feed(rss[4], function(err, articles) {
-
-                if (err) throw err;
-
-                var articles_length = articles.length;
-
-                for (var i = 0; i < articles_length; i++) {
-
-                    var publication = moment(articles[i].published).subtract(1, 'hours');
-                    articles[i].published = publication;
-
-                }
-                tab.in = articles;
+                tab = articles;
                 callback();
             });
         }
     ], function(err) {
-        var array = tab.jv.concat(tab.gb);
-        array = array.concat(tab.eg);
-        array = array.concat(tab.gk);
-        array = array.concat(tab.in);
-        var array_length = array.length;
-        while (array_length > 0) {
-            for (var i = 0; i < array_length - 1 ; i++) {
-                if(moment(array[i].published).isBefore(array[i+1].published)) {
-                    var temp = array[i+1];
-                    array[i+1] = array[i];
-                    array[i] = temp;
+        // Fix for wrong date
+        var tab_length = tab.length;
+        while (tab_length > 0) {
+            for (var i = 0; i < tab_length - 1 ; i++) {
+                if(moment(tab[i].published).isBefore(tab[i+1].published)) {
+                    var temp = tab[i+1];
+                    tab[i+1] = tab[i];
+                    tab[i] = temp;
                 }
             }
-            array_length--;
+            tab_length--;
         }
-        array_length = array.length;
-        for(var i = 0; i < array_length; i++) {
-            var new_date = array[i].published.format('dddd D MMM HH:mm');
-            array[i].published = new_date;
+        tab_length = tab.length;
+        // Format the date as i want
+        for(var i = 0; i < tab_length; i++) {
+            var new_date = tab[i].published.format('dddd D MMM HH:mm');
+            tab[i].published = new_date;
         }
-        res.render('index', {articles: array});
+        res.render('index', {articles: tab});
     });
 
-
 });
-
-
 
 app.listen(app.get('port'), function() {
   console.log('E3 news is running on port', app.get('port'));
