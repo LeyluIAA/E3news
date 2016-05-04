@@ -26,7 +26,8 @@ app.get('/', function (req, res) {
         'http://www.gameblog.fr/rss.php',
         'http://www.gamekult.com/feeds/actu.html',
         'http://fr.ign.com/feed.xml',
-        'https://www.indiemag.fr/feed/rss.xml'
+        'https://www.indiemag.fr/feed/rss.xml',
+        'http://www.gamekyo.com/news.xml'
     ];
 
     // Asynchrone requests to get faster results
@@ -40,7 +41,10 @@ app.get('/', function (req, res) {
                 for (var i = 0; i < articles_length; i++) {
                     var publication = moment(articles[i].published).subtract(1, 'hours');
                     articles[i].published = publication;
-                }
+                    var substring = ':';
+                    console.log(articles[i].feed.name.indexOf(substring));
+                    // indexOf > -1 then 'split' into tables to remove ':' or remove easier
+                 }
                 tab = articles;
                 callback();
             });
@@ -63,6 +67,7 @@ app.get('/', function (req, res) {
         for(var i = 0; i < tab_length; i++) {
             var new_date = tab[i].published.format('dddd D MMM HH:mm');
             tab[i].published = new_date;
+            //console.log(tab[i].feed.name);
         }
         res.render('index', {articles: tab});
     });
