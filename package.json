@@ -20,7 +20,7 @@
   "dependencies": {
     "async": "^2.0.0-rc.3",
     "express": "^4.13.4",
-    "feed-read": "0.0.1",
+    "feed-read-parser": "0.0.5",
     "jade": "^1.11.0",
     "moment": "^2.13.0"
   }

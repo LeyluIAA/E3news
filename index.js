@@ -1,5 +1,5 @@
 const http = require('http');
-var feed = require('feed-read');
+var feed = require('feed-read-parser');
 var express = require('express');
 var moment = require('moment');
 var async = require('async');
@@ -25,7 +25,8 @@ app.get('/', function (req, res) {
         'http://www.jeuxvideo.com/rss/rss.xml',
         'http://www.gameblog.fr/rss.php',
         'http://www.gamekult.com/feeds/actu.html',
-        'http://fr.ign.com/feed.xml'
+        'http://fr.ign.com/feed.xml',
+        'https://www.indiemag.fr/feed/rss.xml'
     ];
 
     // Asynchrone requests to get faster results
@@ -37,7 +38,6 @@ app.get('/', function (req, res) {
                 var articles_length = articles.length;
 
                 for (var i = 0; i < articles_length; i++) {
-
                     var publication = moment(articles[i].published).subtract(1, 'hours');
                     articles[i].published = publication;
                 }
