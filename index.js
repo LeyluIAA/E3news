@@ -42,8 +42,10 @@ app.get('/', function (req, res) {
                     var publication = moment(articles[i].published).subtract(1, 'hours');
                     articles[i].published = publication;
                     var substring = ':';
-                    console.log(articles[i].feed.name.indexOf(substring));
-                    // indexOf > -1 then 'split' into tables to remove ':' or remove easier
+                    if (articles[i].feed.name.indexOf(substring) > -1) {
+                    	var temp_tab = articles[i].feed.name.split(':');
+                    	articles[i].feed.name = temp_tab.join('');
+                    }
                  }
                 tab = articles;
                 callback();
