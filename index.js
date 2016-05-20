@@ -26,8 +26,8 @@ app.get('/', function (req, res) {
         'http://www.gameblog.fr/rss.php',
         'http://www.gamekult.com/feeds/actu.html',
         'http://fr.ign.com/feed.xml',
-        'https://www.indiemag.fr/feed/rss.xml',
-        'http://www.gamekyo.com/news.xml'
+        'https://www.indiemag.fr/feed/rss.xml'
+        //'http://www.gamekyo.com/news.xml'
     ];
 
     // Asynchrone requests to get faster results
