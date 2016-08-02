@@ -1,5 +1,6 @@
-$("#search").on("keyup", function() {
+$("#search").keyup(function() {
     var value = $(this).val();
+    value = value.toLowerCase();
 
     $("table tr").each(function(index) {
         if (index !== 0) {
@@ -7,8 +8,8 @@ $("#search").on("keyup", function() {
             $row = $(this);
 
             var id = $row.find("td:first").text();
-
-            if (id.indexOf(value) !== 0) {
+            id = id.toLowerCase();
+            if (id.match(value) === null) {
                 $row.hide();
             }
             else {

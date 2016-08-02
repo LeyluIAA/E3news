@@ -7,7 +7,6 @@ html
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='static/style.css')
     script(src='https://code.jquery.com/jquery-2.2.3.min.js')
-    script(src='static/sort.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
     meta(charset='utf-8')
   body.corpus
@@ -19,7 +18,6 @@ block content
                 p.navbar-text.slogan Toute l'actu de l'E3 en direct
                 form(class="navbar-form navbar-left" role="search")
                     .form-group: input(type="text" class="form-control" placeholder="Search" id="search")
-                    button(type="submit" class="btn btn-default") Submit
   div.container
     div.content
       table.table.table-default
@@ -31,6 +29,8 @@ block content
         tbody
             each article in articles
                 tr
+                    td: a(href="#{article.link}" target="_blank" class="link") #{article.title}
+                    td= article.published
                     case article.feed.name
                         when "jeuxvideo.com": td: img(src="static/jvcom.png" height="50" width="50")
                         when "IGN France": td: img(src="static/ign.png" height="50" width="50")
@@ -38,7 +38,6 @@ block content
                         when "L\'actu d\'Indie Mag": td: img(src="static/indiemag.png" height="50" width="50")
                         when "Gamekyo.com  News": td: img(src="static/gamekyo.jpeg" height="50" width="50")
                         default: td: img(src="static/gkult.png" height="50" width="50")
-                    td= article.published
-                    td: a(href="#{article.link}" target="_blank" class="link") #{article.title}
 
+  script(src='static/sort.js')
   div.footer
