@@ -1,4 +1,5 @@
 const http = require('http');
+var pug = require('pug');
 var feed = require('feed-read-parser');
 var express = require('express');
 var moment = require('moment');
@@ -14,7 +15,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use('/static', express.static('public'));
 
 app.set('views', './views');
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 /**
  * RSS feed logic
