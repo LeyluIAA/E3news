@@ -27,7 +27,8 @@ app.get('/', function (req, res) {
         'http://www.gameblog.fr/rss.php',
         'http://www.gamekult.com/feeds/actu.html',
         'http://fr.ign.com/feed.xml',
-        'https://www.indiemag.fr/feed/rss.xml'
+        'https://www.indiemag.fr/feed/rss.xml',
+        'http://www.gaminfo.fr/podcasts/feed'
         //'http://www.gamekyo.com/news.xml'
     ];
 
@@ -70,7 +71,7 @@ app.get('/', function (req, res) {
         for(var i = 0; i < tab_length; i++) {
             var new_date = tab[i].published.format('dddd D MMM HH:mm');
             tab[i].published = new_date;
-            //console.log(tab[i].feed.name);
+            console.log(tab[i].feed.name);
         }
         res.render('index', {articles: tab});
     });
