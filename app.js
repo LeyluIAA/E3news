@@ -3,7 +3,6 @@ var feed = require('feed-read-parser');
 var express = require('express');
 var moment = require('moment');
 var async = require('async');
-var firebase = require("firebase");
 
 //var storage = require('./utils/storage');
 
@@ -15,10 +14,10 @@ var config = {
     storageBucket: "e3news-9f6f1.appspot.com",
     messagingSenderId: "104817982342"
 };
-firebase.initializeApp(config);
+//firebase.initializeApp(config);
 
 // Get a reference to the database service
-var database = firebase.database();
+//var database = firebase.database();
 
 /**
  * App declaration

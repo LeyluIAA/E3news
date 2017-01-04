@@ -21,7 +21,6 @@
     "async": "^2.0.0-rc.3",
     "express": "^4.13.4",
     "feed-read-parser": "0.0.5",
-    "firebase": "^3.6.4",
     "moment": "^2.13.0",
     "pug": "^2.0.0-beta6"
   }
