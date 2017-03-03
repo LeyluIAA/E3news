@@ -4,6 +4,17 @@ var feed = require('feed-read-parser');
 var express = require('express');
 var moment = require('moment');
 var async = require('async');
+var rxdb = require('rxdb');
+require('babel-polyfill');
+
+
+const db = await rxdb.create({
+  name: 'heroesDB',           // <- name
+  adapter: 'websql',          // <- storage-adapter
+  password: 'myPassword',     // <- password (optional)
+  multiInstance: true         // <- multiInstance (default: true)
+});
+console.dir(db);
 
 /**
  * App declaration
