@@ -8,8 +8,6 @@ E3news is an RSS aggregator to feed news about several video games sources.
 - Mongo 3.4
 - Python 3.4
 - Flask
-- Node
-- NPM
 
 # configure MongoDB
 

@@ -1,6 +1,7 @@
 #!/usr/bin/python3.4
 
 import feedparser
+from datetime import datetime
 from pymongo import MongoClient
 
 # URLS : add here a new url to support a new site
@@ -65,7 +66,8 @@ for url in urls:
         except Exception:
             pass
         id = entry.id
-        published = entry.published
+        published = entry.published.split(',')[1].split('+')[0]
+        ts_published = int(datetime.strptime(published, " %d %b %Y %H:%M:%S ").timestamp())
         tags = []
         try:
             for tag in entry.tags:
@@ -88,7 +90,7 @@ for url in urls:
             'description': description,
             'link': link,
             '_id': id,
-            'published': published,
+            'published': ts_published,
             'tags': tags
         }
     
