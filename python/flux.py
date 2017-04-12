@@ -1,6 +1,7 @@
 #!/usr/bin/python3.4
 
 import feedparser
+import uuid
 from datetime import datetime
 from pymongo import MongoClient
 
@@ -65,6 +66,8 @@ for url in urls:
             link = entry.link
         except Exception:
             pass
+        #id = uuid.uuid5(uuid.NAMESPACE_DNS, entry.id)
+        #str(id)
         id = entry.id
         published = entry.published.split(',')[1].split('+')[0]
         ts_published = int(datetime.strptime(published, " %d %b %Y %H:%M:%S ").timestamp())
