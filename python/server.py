@@ -15,9 +15,9 @@ def get_feeds():
         feeds.append(feed)
     return {'Feeds': feeds}
 
-@app.route('/feeds/<path:feedid>', methods=['GET'])
-def get_feed(feedid):
-    feeds = db.feed.find({'_id': feedid})
+@app.route('/feeds/<int:limit>', methods=['GET'])
+def get_feed(limit):
+    feeds = db.feed.find({'_id': limit})
     for feed in feeds:
         return {'feed': feed}
 

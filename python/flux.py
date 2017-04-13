@@ -99,6 +99,6 @@ for url in urls:
     
         # Store information in Mongo
         try:
-            db.feed.insert(article)
+            db.feeds.insert(article)
         except Exception:
             pass
