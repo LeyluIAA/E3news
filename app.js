@@ -1,11 +1,11 @@
-const http = require('http');
 var express = require('express');
 var moment = require('moment');
 var mongoose = require('mongoose');
-var async = require('async');
 mongoose.Promise = require('bluebird');
 
-var app = express();
+var app = express(),
+    port = process.env.PORT || 10000,
+    hostname = process.env.HOSTNAME || '37.59.37.193';
 
 mongoose.connect('mongodb://127.0.0.1/e3news');
 var Schema = mongoose.Schema,
@@ -28,25 +28,22 @@ var FeedSchema = new Schema({
 
 var FeedModel = mongoose.model('feed', FeedSchema);
 
-app.set('port', (process.env.PORT || 10000));
-app.set('hostname', (process.env.HOSTNAME || '37.59.37.193'));
-
 app.get('/', function (req, res) {
     res.send('Hello World!');
 });
 
 app.get('/feeds', function (req, res) {
-    feeds = [];
-    var promise = FeedModel.find({}, function (err, docs) {
-        docs.forEach(function(doc) {
-            feeds.push(doc);
-        });
-    }).exec();
+    
+    var limit = parseInt(req.query.limit) || 1000;
+    
+    var promise = FeedModel.find()
+        .sort({published:-1}).limit(limit).exec();
+    
     promise.then(function (feeds) {
         res.send(feeds);
     });
 });
 
-app.listen(app.get('port'), app.get('hostname'), function() {
-  console.log('E3 news is running at', app.get('hostname'), ':',app.get('port'));
-});
+app.listen(port, hostname);
+
+console.log('E3 news is running at ' + hostname + ':' + port);
