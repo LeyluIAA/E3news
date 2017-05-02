@@ -6,7 +6,7 @@ from datetime import datetime
 from pymongo import MongoClient
 
 # URLS : add here a new url to support a new site
-urls = ["http://www.jeuxvideo.com/rss/rss.xml","http://www.gameblog.fr/rss.php","http://www.gamekult.com/feeds/actu.html","http://fr.ign.com/feed.xml","https://www.indiemag.fr/feed/rss.xml","http://www.gaminfo.fr/podcasts/feed"]
+urls = ["http://www.jeuxvideo.com/rss/rss.xml","http://www.gameblog.fr/rss.php","http://www.gamekult.com/feeds/actu.html","http://fr.ign.com/feed.xml","https://www.indiemag.fr/feed/rss.xml","http://www.gaminfo.fr/podcasts/feed", "http://www.nintendo-town.fr/feed/"]
 
 # database connection
 client = MongoClient('localhost', 27017)
@@ -21,6 +21,7 @@ for url in urls:
     site = ''
     try:
         site = response.feed.title
+        print(site)
     except Exception:
         pass
     link_site = ''
