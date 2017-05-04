@@ -33,50 +33,75 @@ app.get('/', function (req, res) {
     ];
 
     // Asynchrone requests to get faster results
-    async.parallel([
-        function(callback) {
-            feed(rss, function(err, articles) {
-                if (err) throw err;
+    //async.parallel([
+    //    function(callback) {
+    //        feed(rss, function(err, articles) {
+    //            if (err) throw err;
 
-                var articles_length = articles.length;
+    //            var articles_length = articles.length;
 
-                for (var i = 0; i < articles_length; i++) {
-                    var publication = moment(articles[i].published).subtract(1, 'hours');
-                    articles[i].published = publication;
-                    var substring = ':';
-                    if (articles[i].feed.name.indexOf(substring) > -1) {
-                    	var temp_tab = articles[i].feed.name.split(':');
-                    	articles[i].feed.name = temp_tab.join('');
-                    }
-                 }
-                tab = articles;
-                callback();
-            });
-        }
-    ], function(err) {
-        // Fix for wrong date
-        var tab_length = tab.length;
-        while (tab_length > 0) {
-            for (var i = 0; i < tab_length - 1 ; i++) {
-                if(moment(tab[i].published).isBefore(tab[i+1].published)) {
-                    var temp = tab[i+1];
-                    tab[i+1] = tab[i];
-                    tab[i] = temp;
-                }
-            }
-            tab_length--;
-        }
-        tab_length = tab.length;
-        // Format the date as i want
-        for(var i = 0; i < tab_length; i++) {
-            var new_date = tab[i].published.format('dddd D MMM HH:mm');
-            tab[i].published = new_date;
-            console.log(tab[i].feed.name);
-        }
-        res.render('index', {articles: tab});
+    //            for (var i = 0; i < articles_length; i++) {
+    //                var publication = moment(articles[i].published).subtract(1, 'hours');
+    //                articles[i].published = publication;
+    //                var substring = ':';
+    //                if (articles[i].feed.name.indexOf(substring) > -1) {
+    //                	var temp_tab = articles[i].feed.name.split(':');
+    //                	articles[i].feed.name = temp_tab.join('');
+    //                }
+    //             }
+    //            tab = articles;
+    //            callback();
+    //        });
+    //    }
+    //], function(err) {
+    //    // Fix for wrong date
+    //    var tab_length = tab.length;
+    //    while (tab_length > 0) {
+    //        for (var i = 0; i < tab_length - 1 ; i++) {
+    //            if(moment(tab[i].published).isBefore(tab[i+1].published)) {
+    //                var temp = tab[i+1];
+    //                tab[i+1] = tab[i];
+    //                tab[i] = temp;
+    //            }
+    //        }
+    //        tab_length--;
+    //    }
+    //    tab_length = tab.length;
+    //    // Format the date as i want
+    //    for(var i = 0; i < tab_length; i++) {
+    //        var new_date = tab[i].published.format('dddd D MMM HH:mm');
+    //        tab[i].published = new_date;
+    //    }
+    //    res.render('index', {articles: tab});
+    //});
+    
+    async.concat(rss, parsefeeds, function(err, articles){
+        // articles has to be a list of feeds, some treatment could be done here on these before res.send...
+        console.log(articles);
     });
 
 });
+
+function parsefeeds(link) {
+    feed(link, function(err, articles) {
+
+        if (err) throw err;
+
+        var articles_length = articles.length;
+
+        for (var i = 0; i < articles_length; i++) {
+            var publication = moment(articles[i].published).subtract(1, 'hours');
+            articles[i].published = publication;
+            var substring = ':';
+            if (articles[i].feed.name.indexOf(substring) > -1) {
+                var temp_tab = articles[i].feed.name.split(':');
+                articles[i].feed.name = temp_tab.join('');
+            }
+        }
+        tab = articles;
+    });
+    return tab;
+};
 
 app.listen(app.get('port'), function() {
   console.log('E3 news is running on port', app.get('port'));
