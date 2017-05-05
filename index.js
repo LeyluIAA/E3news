@@ -4,6 +4,7 @@ var feed = require('feed-read-parser');
 var express = require('express');
 var moment = require('moment');
 var async = require('async');
+moment.locale('fr');
 
 /**
  * App declaration
