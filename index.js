@@ -4,6 +4,7 @@ var feed = require('feed-read-parser');
 var express = require('express');
 var moment = require('moment');
 var async = require('async');
+moment.locale('fr');
 
 /**
  * App declaration
@@ -41,14 +42,18 @@ app.get('/', function (req, res) {
     //            var articles_length = articles.length;
 
     //            for (var i = 0; i < articles_length; i++) {
-    //                var publication = moment(articles[i].published).subtract(1, 'hours');
-    //                articles[i].published = publication;
+    //                
     //                var substring = ':';
     //                if (articles[i].feed.name.indexOf(substring) > -1) {
     //                	var temp_tab = articles[i].feed.name.split(':');
     //                	articles[i].feed.name = temp_tab.join('');
     //                }
-    //             }
+    //                
+    //                var publication = moment(articles[i].published).subtract(1, 'hours');
+    //                articles[i].published = publication.format('dddd D MMM HH:mm');
+    //                if (i === articles_length - 1) continue;
+    //                 
+    //            }
     //            tab = articles;
     //            callback();
     //        });
@@ -75,32 +80,32 @@ app.get('/', function (req, res) {
     //    res.render('index', {articles: tab});
     //});
     
-    async.concat(rss, parsefeeds, function(err, articles){
+    async.each(rss, parsefeeds, function(err){
         // articles has to be a list of feeds, some treatment could be done here on these before res.send...
-        console.log(articles);
+        //console.log(tab);
+        if (err) console.log('ERROR', err);
+        res.render('index', {articles: tab});
     });
 
 });
 
-function parsefeeds(link) {
-    feed(link, function(err, articles) {
-
+function parsefeeds(link, callback) {
+    return feed(link, function(err, articles) {
         if (err) throw err;
-
         var articles_length = articles.length;
 
         for (var i = 0; i < articles_length; i++) {
             var publication = moment(articles[i].published).subtract(1, 'hours');
-            articles[i].published = publication;
-            var substring = ':';
-            if (articles[i].feed.name.indexOf(substring) > -1) {
+            articles[i].published = publication.format('dddd D MMM HH:mm');
+            if (articles[i].feed.name.indexOf(':') > -1) {
                 var temp_tab = articles[i].feed.name.split(':');
                 articles[i].feed.name = temp_tab.join('');
             }
         }
         tab = articles;
+        //console.log(tab);
+        callback(err);
     });
-    return tab;
 };
 
 app.listen(app.get('port'), function() {
