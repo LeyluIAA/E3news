@@ -1,24 +1,21 @@
-# E3news
+# e3news
 
-E3news is an RSS aggregator to feed news about several video games sources.
+> RSS feed aggregation
 
-# Prerequisites
+## Build Setup
 
-- Node
-- NPM
+``` bash
+# install dependencies
+npm install
 
-# Install
+# serve with hot reload at localhost:8080
+npm run dev
 
-``` shell
-$ git clone https://github.com/LeyluIAA/E3news.git
-$ cd E3news
-$ npm i
+# build for production with minification
+npm run build
 
+# build for production and view the bundle analyzer report
+npm run build --report
 ```
 
-# Launch
-
-``` shell
-$ npm start
-
-```
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

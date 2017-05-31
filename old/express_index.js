@@ -38,14 +38,14 @@ app.get('/', function (req, res) {
         function(callback) {
             feed(rss, function(err, articles) {
                 if (err) throw err;
-
+                console.log(articles);
                 var articles_length = articles.length;
 
                 for (var i = 0; i < articles_length; i++) {
                     var publication = moment(articles[i].published).subtract(1, 'hours');
                     articles[i].published = publication;
-                    var substring = ':';
-                    if (articles[i].feed.name.indexOf(substring) > -1) {
+
+                    if (articles[i].feed.name.indexOf(':') > -1) {
                     	var temp_tab = articles[i].feed.name.split(':');
                     	articles[i].feed.name = temp_tab.join('');
                     }
@@ -72,7 +72,7 @@ app.get('/', function (req, res) {
         for(var i = 0; i < tab_length; i++) {
             var new_date = tab[i].published.format('dddd D MMM HH:mm');
             tab[i].published = new_date;
-            console.log(tab[i].feed.name);
+            //console.log(tab[i].feed.name);
         }
         res.render('index', {articles: tab});
     });
