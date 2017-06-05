@@ -72,7 +72,6 @@ app.get('/', function (req, res) {
         for(var i = 0; i < tab_length; i++) {
             var new_date = tab[i].published.format('dddd D MMM HH:mm');
             tab[i].published = new_date;
-            console.log(tab[i].feed.name);
         }
         res.render('index', {articles: tab});
     });
