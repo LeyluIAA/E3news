@@ -48,3 +48,7 @@
     vertical-align: middle;
     border-top: 1px solid #ddd;
 }
+
+.expand-content {
+    display: none;
+}
