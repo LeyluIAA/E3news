@@ -22,3 +22,7 @@ $("#search").keyup(function() {
 $('.expand').click(function(){
     $('.expand-content').slideToggle('slow');
 });
+
+$('.expand-video').click(function(){
+    $('.expanded-video').slideToggle('slow');
+});

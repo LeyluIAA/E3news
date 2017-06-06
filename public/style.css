@@ -49,6 +49,6 @@
     border-top: 1px solid #ddd;
 }
 
-.expand-content {
+.expand-content, .expanded-video {
     display: none;
 }
