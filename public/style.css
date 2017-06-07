@@ -14,8 +14,18 @@
     font-family: open_24;
 }
 
-.slogan {
-    font-size: 22px;
+.menu a{
+    color: white;
+    cursor: pointer;
+}
+
+.menu a:hover{
+    color: #333;
+    cursor: pointer;
+}
+
+.expand a {
+    cursor: pointer;
 }
 
 .corpus {
@@ -26,11 +36,7 @@
 }
 
 .navbar-brand-e3 {
-    float: left;
-    height: 50px;
-    padding: 15px 15px;
-    font-size: 36px;
-    line-height: 20px;
+    font-size: 28px;
 }
 
 .link:link {
@@ -49,6 +55,11 @@
     border-top: 1px solid #ddd;
 }
 
+.fixedtable {
+    margin-top: 80px;
+}
+
 .expand-content, .expanded-video {
+    padding-top: 80px;
     display: none;
 }
