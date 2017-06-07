@@ -59,14 +59,14 @@ block content
                         td: a(href=article.link target="_blank" class="link") #{article.title}
                         td= article.published
                         case article.feed.name
-                            when "jeuxvideo.com": td: img(src="static/jvcom.png" height="50" width="50")
-                            when "IGN France": td: img(src="static/ign.png" height="50" width="50")
-                            when "Gameblog": td: img(src="static/test.jpg" height="50" width="50")
-                            when "L\'actu d\'IndieMag": td: img(src="static/indiemag.png" height="50" width="50")
-                            when "Gamekyo.com  News": td: img(src="static/gamekyo.jpeg" height="50" width="50")
-                            when "Podcasts – Gaminfo.fr": td: img(src="static/gaminfo.jpg" height="50" width="50")
-                            when "Nintendo-Town.fr": td: img(src="static/ntown.png" height="50" width="50")
-                            default: td: img(src="static/gkult.png" height="50" width="50")
+                            when "jeuxvideo.com": td: img(src="static/jvcom.jpg" height="40" width="50" data-toggle="tooltip" data-placement="left" title="jeuxvideo.com")
+                            when "IGN France": td: img(src="static/ign.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="IGN France")
+                            when "Gameblog": td: img(src="static/test.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="gameblog")
+                            when "L\'actu d\'IndieMag": td: img(src="static/indiemag.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="L\'actu d\'IndieMag")
+                            when "Gamekyo.com  News": td: img(src="static/gamekyo.jpeg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekyo.com news")
+                            when "Podcasts – Gaminfo.fr": td: img(src="static/gaminfo.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Podcasts - Gaminfo.fr")
+                            when "Nintendo-Town.fr": td: img(src="static/ntown.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo-Town.fr")
+                            default: td: img(src="static/gkult.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekult")
 
     script(src='static/sort.js')
     div.footer
