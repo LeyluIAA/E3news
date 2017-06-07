@@ -24,6 +24,10 @@
     cursor: pointer;
 }
 
+.iconcolor {
+    background-color: white;
+}
+
 .expand a {
     cursor: pointer;
 }
