@@ -71,6 +71,7 @@ app.get('/', function (req, res) {
         tab_length = tab.length;
         // Format the date as i want
         for(var i = 0; i < tab_length; i++) {
+            tab[i].published.add(2,'h');
             var new_date = tab[i].published.format('dddd D MMM HH:mm');
             tab[i].published = new_date;
             //console.log(tab[i].title);
