@@ -32,6 +32,15 @@
     cursor: pointer;
 }
 
+.expand-video a {
+    cursor: pointer;
+}
+
+.yt {
+  /*background-color: #5d819b;*/
+  color: #333;
+}
+
 .corpus {
     background-color: #ffffff;
     font-family: rounded_elegance;
