@@ -22,6 +22,7 @@
     "express": "^4.13.4",
     "feed-read-parser": "0.0.5",
     "moment": "^2.13.0",
+    "moment-timezone": "^0.5.14",
     "pug": "^2.0.0-beta6"
   }
 }

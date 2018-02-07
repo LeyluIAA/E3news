@@ -2,7 +2,7 @@ const http = require('http');
 var pug = require('pug');
 var feed = require('feed-read-parser');
 var express = require('express');
-var moment = require('moment');
+var moment = require('moment-timezone');
 var async = require('async');
 moment.locale('fr');
 
@@ -43,7 +43,7 @@ app.get('/', function (req, res) {
                 var articles_length = articles.length;
 
                 for (var i = 0; i < articles_length; i++) {
-                    var publication = moment(articles[i].published).subtract(1, 'hours');
+                    var publication = moment(articles[i].published);
                     articles[i].published = publication;
                     var substring = ':';
                     if (articles[i].feed.name.indexOf(substring) > -1) {
@@ -72,7 +72,7 @@ app.get('/', function (req, res) {
         // Format the date as i want
         for(var i = 0; i < tab_length; i++) {
             //tab[i].published.add(2,'h');
-            var new_date = tab[i].published.format('dddd D MMM HH:mm');
+            var new_date = tab[i].published.tz("Europe/Paris").format('dddd D MMM HH:mm');
             tab[i].published = new_date;
             //console.log(tab[i].title);
         }
