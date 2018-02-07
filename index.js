@@ -43,12 +43,9 @@ app.get('/', function (req, res) {
                 var articles_length = articles.length;
 
                 for (var i = 0; i < articles_length; i++) {
-                    var publication = moment(articles[i].published);
-                    articles[i].published = publication;
-                    var substring = ':';
-                    if (articles[i].feed.name.indexOf(substring) > -1) {
-                    	var temp_tab = articles[i].feed.name.split(':');
-                    	articles[i].feed.name = temp_tab.join('');
+                    articles[i].published = moment(articles[i].published);
+                    if (articles[i].feed.name.indexOf(':') > -1) {
+                        articles[i].feed.name = articles[i].feed.name.split(':').join('');
                     }
                  }
                 tab = articles;
@@ -72,7 +69,7 @@ app.get('/', function (req, res) {
         // Format the date as i want
         for(var i = 0; i < tab_length; i++) {
             //tab[i].published.add(2,'h');
-            var new_date = tab[i].published.tz("Europe/Paris").format('dddd D MMM HH:mm');
+            var new_date = tab[i].published.tz("Europe/Paris").format('D MMM HH:mm');
             tab[i].published = new_date;
             //console.log(tab[i].title);
         }
