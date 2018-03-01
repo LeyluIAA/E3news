@@ -1,24 +1,22 @@
-# E3news
+# e3news
 
-E3news is an RSS aggregator to feed news about several video games sources.
+> video games News & feeds
 
-# Prerequisites
+## Build Setup
 
-- Node
-- NPM
+``` bash
+# install dependencies
+$ npm install # Or yarn install
 
-# Install
+# serve with hot reload at localhost:3000
+$ npm run dev
 
-``` shell
-$ git clone https://github.com/LeyluIAA/E3news.git
-$ cd E3news
-$ npm i
-
-```
-
-# Launch
-
-``` shell
+# build for production and launch server
+$ npm run build
 $ npm start
 
+# generate static project
+$ npm run generate
 ```
+
+For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
