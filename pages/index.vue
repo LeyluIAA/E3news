@@ -3,10 +3,10 @@
     <div>
       <app-logo/>
       <h1 class="title">
-        e3news
+        E3news
       </h1>
       <h2 class="subtitle">
-        video games News & feeds
+        RSS and News about video games
       </h2>
       <div class="links">
         <a

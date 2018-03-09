@@ -1,6 +1,6 @@
 # e3news
 
-> video games News & feeds
+> RSS and News about video games
 
 ## Build Setup
 

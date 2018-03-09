@@ -1,7 +1,7 @@
 {
   "name": "e3news",
   "version": "1.0.0",
-  "description": "video games News & feeds",
+  "description": "RSS and News about video games",
   "author": "LeyluIAA",
   "private": true,
   "scripts": {
@@ -9,10 +9,11 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "bulma": "~0.6.2",
     "nuxt": "^1.0.0"
   },
   "devDependencies": {
