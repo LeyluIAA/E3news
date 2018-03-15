@@ -26,7 +26,8 @@ app.get('/', function (req, res) {
     var rss = [
         'http://www.jeuxvideo.com/rss/rss.xml',
         'http://www.gameblog.fr/rss.php',
-        'http://www.gamekult.com/feeds/actu.html'
+        'http://www.gamekult.com/feeds/actu.html',
+        'http://search.nintendo-europe.com/fr/feed/news'
         //'http://fr.ign.com/feed.xml',
         //'https://www.indiemag.fr/feed/rss.xml',
         //'http://www.gaminfo.fr/podcasts/feed',
