@@ -1,23 +1,12 @@
 <template>
-  <section class="container">
-    <div>
-      <app-logo/>
+  <section class="section">
+    <div class="container">
       <h1 class="title">
-        E3news
+        Hello World
       </h1>
-      <h2 class="subtitle">
-        RSS and News about video games
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
+      <p class="subtitle">
+        My first website with <strong>Bulma</strong>!
+      </p>
     </div>
   </section>
 </template>
