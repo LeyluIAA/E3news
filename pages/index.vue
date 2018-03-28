@@ -75,6 +75,20 @@ import AppLogo from '~/components/AppLogo.vue'
 export default {
   components: {
     AppLogo
+  },
+  head () {
+    return {
+      title: this.title,
+      meta: [
+        { hid: 'description', name: 'description', content: 'News sur l\'E3' }
+      ],
+      link: [
+        {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css'}
+      ],
+      script: [
+        {defer: '', src:'https://use.fontawesome.com/releases/v5.0.6/js/all.js'}
+      ]
+    }
   }
 }
 </script>

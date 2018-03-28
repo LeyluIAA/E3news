@@ -11,7 +11,7 @@ let layouts = {
 let resolvedLayouts = {}
 
 export default {
-  head: { "title": "e3news", "meta": [{ "charset": "utf-8" }, { "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "hid": "description", "name": "description", "content": "RSS and News about video games" }], "link": [{ "rel": "icon", "type": "image\u002Fx-icon", "href": "\u002Ffavicon.ico" }, { "rel": "stylesheet", "href": "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" }], "style": [], "script": [{ "defer":"", "src": "https://use.fontawesome.com/releases/v5.0.6/js/all.js"}]},
+  head: {"title":"e3news","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"RSS and News about video games"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
   render(h, props) {
     const loadingEl = h('nuxt-loading', { ref: 'loading' })
     const layoutEl = h(this.layout || 'nuxt')
