@@ -3,7 +3,7 @@
     <nav class="navbar is-fixed-top is-dark">
   <div class="navbar-brand">
     <!--<img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">-->
-    <a class="navbar-item" href="#">E3 News</a>
+    <a class="navbar-item" href="#" style="font-family: boldfont;">E3 News</a>
     <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
       <span></span>
       <span></span>
@@ -47,7 +47,7 @@
             <p class="control">
             <a class="button is-primary" href="#">
               <span class="icon">
-                <i class="fas fa-user"></i>
+                <i class="mdi mdi-account"></i>
               </span>
               <span>S'inscrire</span>
             </a>
@@ -55,7 +55,7 @@
             <p class="control">
             <a class="button is-link" href="#">
               <span class="icon">
-                <i class="fas fa-user"></i>
+                <i class="mdi mdi-account"></i>
               </span>
               <span>Se connecter</span>
             </a>
@@ -75,8 +75,8 @@ import AppLogo from '~/components/AppLogo.vue'
 export default {
   components: {
     AppLogo
-  },
-  head () {
+  }
+  /*head () {
     return {
       title: this.title,
       meta: [
@@ -89,7 +89,7 @@ export default {
         {defer: '', src:'https://use.fontawesome.com/releases/v5.0.6/js/all.js'}
       ]
     }
-  }
+  }*/
 }
 </script>
 

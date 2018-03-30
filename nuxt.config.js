@@ -10,9 +10,14 @@ module.exports = {
             { hid: 'description', name: 'description', content: 'RSS and News about video games' }
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            { rel: 'stylesheet', href: 'http://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css' },
+            { rel: 'stylesheet', href: '/title_style.css' }
         ]
     },
+    modules: [
+        'nuxt-buefy'
+    ],
     /*
   ** Customize the progress bar color
   */
