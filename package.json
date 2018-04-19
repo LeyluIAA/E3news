@@ -15,6 +15,8 @@
   "dependencies": {
     "buefy": "~0.6.5",
     "bulma": "~0.6.2",
+    "feed-read-parser": "~1.0.5",
+    "moment-timezone": "~0.5.14",
     "nuxt": "^1.0.0",
     "nuxt-buefy": "0.0.4"
   },
