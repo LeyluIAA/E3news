@@ -8,7 +8,7 @@
     src: url(rounded_elegance.ttf);
 }
 
-.banniere {
+/*.banniere {
     background-color: #5d819b;
     color: white;
     font-family: open_24;
@@ -38,7 +38,7 @@
 
 .yt {
   /*background-color: #5d819b;*/
-  color: #333;
+ /* color: #333;
 }
 
 .corpus {
@@ -59,9 +59,9 @@
 .link:focus, .link:hover {
     text-decoration: none;
     color: blue;
-}
+}*/
 
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+/*.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     padding: 8px;
     line-height: 1.42857143;
     vertical-align: middle;
@@ -75,4 +75,4 @@
 .expand-content, .expanded-video {
     padding-top: 80px;
     display: none;
-}
+}*/
