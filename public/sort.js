@@ -2,6 +2,21 @@ $(document).ready(function(){
     window.setInterval(function(){refresh()}, 120000);
 });
 
+$(".overlay__menu").click(function(){
+    $(".overlay__menu").toggle();
+    $(".vertical__pages").toggle();
+});
+
+$(".vertical__link").click(function(){
+    $(".overlay__menu").toggle();
+    $(".vertical__pages").toggle();
+});
+
+$(".navbar__burger").click(function(){
+    $(".overlay__menu").toggle();
+    $(".vertical__pages").toggle();
+});
+
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
