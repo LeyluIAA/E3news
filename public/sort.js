@@ -17,15 +17,6 @@ $(".navbar__burger").click(function(){
     $(".vertical__pages").toggle();
 });
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
-
 $("#search").keyup(function() {
     var value = $(this).val();
     value = value.toLowerCase();
@@ -68,11 +59,11 @@ $('#xbox').click(function(){
 
                 var id = $row.find("td:first").text();
                 id = id.toLowerCase();
-                if (id.match('xbox') === null && id.match('microsoft') === null) {
-                    $row.hide();
+                if (id.match('xbox') || id.match('microsoft')) {
+                    $row.show();
                 }
                 else {
-                    $row.show();
+                    $row.hide();
                 }
             }
         });
@@ -92,11 +83,11 @@ $('#playstation').click(function(){
 
                 var id = $row.find("td:first").text();
                 id = id.toLowerCase();
-                if (id.match('playstation') === null && id.match('sony') === null && id.match('ps4') === null) {
-                    $row.hide();
+                if (id.match('playstation') || id.match('sony') || id.match('ps4')) {
+                    $row.show();
                 }
                 else {
-                    $row.show();
+                    $row.hide();
                 }
             }
         });
@@ -116,11 +107,11 @@ $('#nintendo').click(function(){
 
                 var id = $row.find("td:first").text();
                 id = id.toLowerCase();
-                if (id.match('nintendo') === null && id.match('switch') === null && id.match('3ds') === null && id.match('2ds') === null) {
-                    $row.hide();
+                if (id.match('nintendo') || id.match('switch') || id.match('3ds') || id.match('2ds')) {
+                    $row.show();
                 }
                 else {
-                    $row.show();
+                    $row.hide();
                 }
             }
         });
@@ -139,11 +130,11 @@ var reset = function(){
 
             var id = $row.find("td:first").text();
             id = id.toLowerCase();
-            if (id.match('') === null) {
-                $row.hide();
+            if (id.match('')) {
+                $row.show();
             }
             else {
-                $row.show();
+                $row.hide();
             }
         }
     });
