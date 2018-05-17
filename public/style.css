@@ -75,6 +75,12 @@
   margin-top: 2rem;
 }
 
+.conf__list {
+  display: none;
+  list-style: none;
+  text-decoration: none;
+}
+
 body {
     margin: 0;
   }
