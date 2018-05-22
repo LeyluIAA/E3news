@@ -264,7 +264,7 @@ body {
     min-height: 3.25rem;
 }
 .bg_navbar {
-    background: linear-gradient(#222,#000);
+    background: linear-gradient(#333,#000);
     left: 0;
     top: 0;
     position: fixed;
