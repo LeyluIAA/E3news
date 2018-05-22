@@ -50,7 +50,7 @@ var refresh = function(){
     window.location.reload(true);
 }
 
-$('#xbox').click(function(){
+$('.xbox').click(function(){
     if (!window.xboxfilter){
         $("table tr").each(function(index) {
             if (index !== 0) {
@@ -74,7 +74,7 @@ $('#xbox').click(function(){
     }
 });
 
-$('#playstation').click(function(){
+$('.playstation').click(function(){
     if (!window.playstationfilter){
         $("table tr").each(function(index) {
             if (index !== 0) {
@@ -98,7 +98,7 @@ $('#playstation').click(function(){
     }
 });
 
-$('#nintendo').click(function(){
+$('.nintendo').click(function(){
     if (!window.nintendofilter){
         $("table tr").each(function(index) {
             if (index !== 0) {

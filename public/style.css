@@ -9,6 +9,11 @@
     src: url(rounded_elegance.ttf);
 }
 
+@font-face {
+    font-family: quantum;
+    src: url(Quantum.otf);
+}
+
 .banniere {
     background-color: #5d819b;
     color: white;
@@ -226,3 +231,119 @@ body {
       text-decoration: none;
     }
   }  
+
+
+  /***** style with bulma */
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+.transparent {
+  background-color: transparent !important;
+}
+body {
+  margin: 0;
+}
+.logo {
+  color: #47eded;
+  display:flex;
+  align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  line-height: 1.5;
+  padding: .5rem .75rem;
+  position: relative;
+  font-family: 'quantum';
+  font-size: 2.5rem;
+}
+.logo:hover {
+  color: #47eded;
+}
+.brand {
+    align-items: stretch;
+    display: flex;
+    flex-shrink: 0;
+    min-height: 3.25rem;
+}
+.bg_navbar {
+    background: linear-gradient(#222,#000);
+    left: 0;
+    top: 0;
+    position: fixed;
+    right: 0;
+    z-index: 30;
+    align-items: stretch;
+    display: flex;
+    justify-content: space-between;
+}
+.navbar-item {
+  color: #FFF;
+}
+.navbar-end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filters-wrapper {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    line-height: 1.5;
+    padding: .5rem .75rem;
+    position: relative;
+    align-items: center;
+    color: #fff;
+}
+
+.filters {
+  display: flex;
+  align-items: flex-start;
+}
+
+.control {
+  font-size: 1rem;
+  position: relative;
+  text-align: left;
+  margin-right: 0.7rem;
+}
+
+.xbox {
+  color: #82C738;
+  cursor: pointer;
+}
+
+.xbox:hover {
+  color: #A9E159;
+  cursor:pointer;
+}
+
+.playstation {
+  color: #6790F8;
+  cursor: pointer;
+}
+
+.playstation:hover {
+  color: #B4C8FD;
+  cursor:pointer;
+}
+
+.nintendo {
+  color: #FF7A2C;
+  cursor: pointer;
+}
+
+.nintendo:hover {
+  color: #FFA656;
+  cursor:pointer;
+}
+
+.conf {
+  height:35px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.search {
+  cursor:pointer;
+}
