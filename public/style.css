@@ -1,33 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-@font-face {
-    font-family: open_24;
-    src: url(open_24.ttf);
-}
-
-@font-face {
-    font-family: rounded_elegance;
-    src: url(rounded_elegance.ttf);
-}
 
 @font-face {
     font-family: quantum;
     src: url(Quantum.otf);
-}
-
-.banniere {
-    background-color: #5d819b;
-    color: white;
-    font-family: open_24;
-}
-
-.menu a{
-    color: white;
-    cursor: pointer;
-}
-
-.menu a:hover{
-    color: #333;
-    cursor: pointer;
 }
 
 .iconcolor {
@@ -49,7 +24,7 @@
 
 .corpus {
     background-color: #ffffff;
-    font-family: rounded_elegance;
+    font-family: 'Roboto';
     color: #333;
     font-size: 17px;
 }
@@ -66,18 +41,16 @@
     padding-top: 2rem;
     display: none;
 }
-
-
-/** add new style for navbar **/
 .content {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-top:3.5rem;
 }
 
 .tableaucentre {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 
 .conf__list {
@@ -89,151 +62,8 @@
 body {
     margin: 0;
   }
-  
-  @media screen and (min-width: 1200px) {
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      background: linear-gradient(#493A93,#2F257E);
-      color: white;
-      height: 4rem;
-    }
-    
-    .navbar__burger, .vertical_pages, .vertical__item, .vertical__link, .overlay__menu {
-      display: none;
-    }
-    .navbar-logo-e3news {
-      padding: 1rem;
-      height: 3rem;
-    }
-    .navbar-search {
-      padding: 1rem;
-      font-size: 1rem;
-      text-align: center;
-      width: 60%;
-    }
-  
-    #search {
-      width: 90%;
-      font-family: 'Roboto', cursive;
-      color: #222;
-      height: 100%;
-      font-size: 2.2rem;
-      padding-left: 5px;
-      border-radius: 0.3rem;
-      box-shadow: inset 1px 1px 20px 1px #656565;
-      flex-grow: 1;
-    }
-  
-    .navbar-filters {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      /*height:7rem;*/
-      font-family: 'Roboto', cursive;
-    }
-    
-    .navbar-item {
-      padding-right: 0.5rem;
-      padding-left: 0.5rem;
-      font-size: 1.2rem;
-    }
-  
-    .navbar-item:hover{
-      padding-right: 0.5rem;
-      padding-left: 0.5rem;
-      font-size: 1.2rem;
-      color:rgb(20,20,20);
-      cursor:pointer;
-    }
 
-    a {
-      text-decoration: none;
-    }
-  }
-  
-  @media screen and (max-width: 1200px) {
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: linear-gradient(#493A93,#2F257E);
-      color: white;
-      height: 4rem;
-    }
-    .navbar-logo-e3news {
-      padding: 1rem;
-      height: 3rem;
-      justify-content: center;
-    }
-    .navbar-search {
-      padding: 1rem;
-      font-size: 1rem;
-      text-align: center;
-      width: 70%;
-    }
-    #search {
-      width: 90%;
-      font-family: 'Roboto', cursive;
-      color: #222;
-      height: 100%;
-      font-size: 2.2rem;
-      padding-left: 5px;
-      border-radius: 0.3rem;
-      box-shadow: inset 1px 1px 20px 1px #656565;
-      flex-grow: 1;
-    }
-    .navbar__burger {
-      color: white;
-      margin: 0 2rem;
-      font-size: 2rem;
-      height: 3rem;
-    }
-    .navbar-filters {
-      display:none;
-    }
-    .overlay__menu {
-      display: none;
-      z-index: 9000;
-      background-color: rgba(10, 10, 10, 0.6);
-      width: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-    }
-  
-    .vertical__pages {
-      display: none;
-      transition: transform 500ms ease 0s;
-      z-index: 9000;
-      width: 200px;
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      background: linear-gradient(#493A93,#2F257E);
-    }
-  
-    .vertical__item {
-      padding: 1rem;
-      color:white;
-      font-family: "Roboto", sans-serif;
-    }
-    .vertical__item:hover {
-      padding: 1rem;
-      color:rgb(20,20,20);
-      font-family: "Roboto", sans-serif;
-      cursor:pointer;
-    }
-    a {
-      text-decoration: none;
-    }
-  }  
-
-
-  /***** style with bulma */
+/***** style with bulma */
 
   @import url('https://fonts.googleapis.com/css?family=Roboto');
 .transparent {
@@ -242,108 +72,218 @@ body {
 body {
   margin: 0;
 }
-.logo {
-  color: #47eded;
-  display:flex;
-  align-items: center;
-  flex-grow: 0;
-  flex-shrink: 0;
-  line-height: 1.5;
-  padding: .5rem .75rem;
-  position: relative;
-  font-family: 'quantum';
-  font-size: 2.5rem;
-}
-.logo:hover {
-  color: #47eded;
-}
-.brand {
-    align-items: stretch;
-    display: flex;
-    flex-shrink: 0;
-    min-height: 3.25rem;
-}
-.bg_navbar {
-    background: linear-gradient(#222,#000);
-    left: 0;
-    top: 0;
-    position: fixed;
-    right: 0;
-    z-index: 30;
-    align-items: stretch;
-    display: flex;
-    justify-content: space-between;
-}
-.navbar-item {
-  color: #FFF;
-}
-.navbar-end {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.filters-wrapper {
-    display: flex;
+@media screen and (min-width: 720px) {
+  .logo {
+    color: #47eded;
+    display:flex;
+    align-items: center;
     flex-grow: 0;
     flex-shrink: 0;
     line-height: 1.5;
     padding: .5rem .75rem;
     position: relative;
+    font-family: 'quantum';
+    font-size: 2.5rem;
+  }
+
+  .brand {
+      align-items: stretch;
+      display: flex;
+      flex-shrink: 0;
+      min-height: 3.25rem;
+  }
+
+  .bg_navbar {
+      background: linear-gradient(#222,#000);
+      left: 0;
+      top: 0;
+      position: fixed;
+      right: 0;
+      z-index: 30;
+      align-items: stretch;
+      display: flex;
+      justify-content: space-between;
+  }
+  .navbar-item {
+    color: #FFF;
+  }
+  .navbar-end {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    color: #fff;
+  }
+  .filters-wrapper {
+      display: flex;
+      flex-grow: 0;
+      flex-shrink: 0;
+      line-height: 1.5;
+      padding: .5rem .75rem;
+      position: relative;
+      align-items: center;
+      color: #fff;
+  }
+
+  .filters {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .control {
+    font-size: 1rem;
+    position: relative;
+    text-align: left;
+    margin-right: 0.7rem;
+  }
+
+  .xbox {
+    color: #82C738;
+    cursor: pointer;
+  }
+
+  .xbox:hover {
+    color: #A9E159;
+    cursor:pointer;
+  }
+
+  .playstation {
+    color: #6790F8;
+    cursor: pointer;
+  }
+
+  .playstation:hover {
+    color: #B4C8FD;
+    cursor:pointer;
+  }
+
+  .nintendo {
+    color: #FF7A2C;
+    cursor: pointer;
+  }
+
+  .nintendo:hover {
+    color: #FFA656;
+    cursor:pointer;
+  }
+
+  .conf {
+    height:35px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+  .search {
+    cursor:pointer;
+  }
 }
 
-.filters {
-  display: flex;
-  align-items: flex-start;
-}
+@media screen and (max-width: 720px) {
+  .logo {
+    color: #47eded;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    line-height: 1.5;
+    padding: .5rem .75rem;
+    position: relative;
+    font-family: 'quantum';
+    font-size: 2.5rem;
+  }
 
-.control {
-  font-size: 1rem;
-  position: relative;
-  text-align: left;
-  margin-right: 0.7rem;
-}
+  .brand {
+      align-items: stretch;
+      display: flex;
+      flex-shrink: 0;
+      min-height: 3.25rem;
+  }
 
-.xbox {
-  color: #82C738;
-  cursor: pointer;
-}
+  .bg_navbar {
+      background: linear-gradient(#222,#000);
+      left: 0;
+      top: 0;
+      position: fixed;
+      right: 0;
+      z-index: 30;
+      align-items: stretch;
+      display: flex;
+      justify-content: space-between;
+  }
+  .navbar-item {
+    color: #FFF;
+  }
+  .navbar-end {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .filters-wrapper {
+      display: flex;
+      flex-grow: 0;
+      flex-shrink: 0;
+      line-height: 1.5;
+      padding: .5rem .75rem;
+      position: relative;
+      align-items: center;
+      color: #fff;
+  }
 
-.xbox:hover {
-  color: #A9E159;
-  cursor:pointer;
-}
+  .filters {
+    display: flex;
+    align-items: flex-start;
+  }
 
-.playstation {
-  color: #6790F8;
-  cursor: pointer;
-}
+  .control {
+    font-size: 1rem;
+    position: relative;
+    text-align: left;
+    margin-right: 0.7rem;
+  }
 
-.playstation:hover {
-  color: #B4C8FD;
-  cursor:pointer;
-}
+  .xbox {
+    color: #82C738;
+    cursor: pointer;
+  }
 
-.nintendo {
-  color: #FF7A2C;
-  cursor: pointer;
-}
+  .xbox:hover {
+    color: #A9E159;
+    cursor:pointer;
+  }
 
-.nintendo:hover {
-  color: #FFA656;
-  cursor:pointer;
-}
+  .playstation {
+    color: #6790F8;
+    cursor: pointer;
+  }
 
-.conf {
-  height:35px;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 5px;
-  cursor: pointer;
-}
+  .playstation:hover {
+    color: #B4C8FD;
+    cursor:pointer;
+  }
 
-.search {
-  cursor:pointer;
+  .nintendo {
+    color: #FF7A2C;
+    cursor: pointer;
+  }
+
+  .nintendo:hover {
+    color: #FFA656;
+    cursor:pointer;
+  }
+
+  .conf {
+    height:35px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+  .search {
+    cursor:pointer;
+  }
 }

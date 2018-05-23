@@ -1,12 +1,16 @@
 doctype html
 html
   head
-    title!= title
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title E3NEWS - ACTUALITES E3 SUR PLAYSTATION XBOX ET NINTENDO
+    meta(name="description" content="Aggregation de flux RSS sur l'actualité jeux vidéo et articles d'analyse sur les contenus jeux vidéo")
+    meta(name="author" content="LeyluIAA")
+    meta(name="keywords" content="E3,news, rss, nintendo, xbox, microsoft")
     link(rel='icon', type='image/png', href='static/favicon.ico')
     link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.13/css/all.css")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css")
     link(rel='stylesheet', href='static/style.css')
-    meta(charset='utf-8')
   body.corpus
 block content
     nav.bg_navbar
@@ -15,7 +19,7 @@ block content
         div.navbar-end
             div.filters-wrapper
                 div.filters
-                    p.conf
+                    p.conf.expand
                         img(src="https://www.e3expo.com/wp-content/uploads/2018/01/E3Logo_Nav-1.svg" alt="E3 logo officiel" height="190" width="50")
                     p.control
                         i.fab.fa-xbox.fa-2x.xbox
@@ -41,6 +45,7 @@ block content
                   li.list-group-item <b>Devolver Digital</b> : <i>Non disponible</i>
                   li.list-group-item <b>PC Gaming Show</b> : <i>Non disponible</i>
 
+            h1.title Les dernières news jeux vidéo
             table.table.table-default.fixedtable.tableaucentre
                 thead
                     tr
@@ -53,15 +58,15 @@ block content
                         td: a(href=article.link target="_blank" class="link") #{article.title}
                         td= article.published
                         case article.feed.name
-                            when "jeuxvideo.com": td: img(src="static/jvcom.jpg" height="40" width="50" data-toggle="tooltip" data-placement="left" title="jeuxvideo.com")
-                            when "IGN France": td: img(src="static/ign.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="IGN France")
-                            when "Dernières news - Nintendo France": td: img(src="static/nintendofr.ico" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo.fr")
-                            when "Gameblog": td: img(src="static/test.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="gameblog")
-                            when "L\'actu d\'IndieMag": td: img(src="static/indiemag.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="L\'actu d\'IndieMag")
-                            when "Gamekyo.com  News": td: img(src="static/gamekyo.jpeg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekyo.com news")
-                            when "Podcasts – Gaminfo.fr": td: img(src="static/gaminfo.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Podcasts - Gaminfo.fr")
-                            when "Nintendo-Town.fr": td: img(src="static/ntown.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo-Town.fr")
-                            default: td: img(src="static/gkult.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekult")
+                            when "jeuxvideo.com": td: img(src="static/jvcom.jpg" height="40" width="50" data-toggle="tooltip" data-placement="left" title="jeuxvideo.com" alt="logo de jeuxvideo.com")
+                            when "IGN France": td: img(src="static/ign.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="IGN France" alt="logo de IGN")
+                            when "Dernières news - Nintendo France": td: img(src="static/nintendofr.ico" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo.fr" alt="logo de Nintendo.fr")
+                            when "Gameblog": td: img(src="static/test.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="gameblog" alt="logo de gameblog")
+                            when "L\'actu d\'IndieMag": td: img(src="static/indiemag.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="L\'actu d\'IndieMag" alt="logo d'Indiemage")
+                            when "Gamekyo.com  News": td: img(src="static/gamekyo.jpeg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekyo.com news" alt="logo de Gamekyo")
+                            when "Podcasts – Gaminfo.fr": td: img(src="static/gaminfo.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Podcasts - Gaminfo.fr" alt="logo de Gaminfo")
+                            when "Nintendo-Town.fr": td: img(src="static/ntown.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo-Town.fr" alt="logo de Nintendo-Town.fr")
+                            default: td: img(src="static/gkult.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekult" alt="logo de Gamekult")
 
     script(src='https://code.jquery.com/jquery-2.2.3.min.js')
     script(src='static/sort.js')
