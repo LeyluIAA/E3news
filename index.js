@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
         //'http://fr.ign.com/feed.xml',
         'https://www.indiemag.fr/feed/rss.xml',
         //'http://www.gaminfo.fr/podcasts/feed',
-        'http://www.nintendo-town.fr/feed',
+        //'http://www.nintendo-town.fr/feed',
         'http://www.gamekyo.com/news.xml'
     ];
 
@@ -39,8 +39,6 @@ app.get('/', function (req, res) {
     async.parallel([
         function(callback) {
             feed(rss, function(err, articles) {
-                if (err) throw err;
-
                 var articles_length = articles.length;
 
                 for (var i = 0; i < articles_length; i++) {
@@ -48,7 +46,7 @@ app.get('/', function (req, res) {
                     if (articles[i].feed.name.indexOf(':') > -1) {
                         articles[i].feed.name = articles[i].feed.name.split(':').join('');
                     }
-                 }
+                }
                 tab = articles;
                 callback();
             });

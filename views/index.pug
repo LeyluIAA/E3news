@@ -9,60 +9,58 @@ html
     link(rel='stylesheet', href='static/style.css')
     script(src='https://code.jquery.com/jquery-2.2.3.min.js')
   body.corpus
-block content
-    div.navbar
-        img(src="https://www.e3expo.com/wp-content/uploads/2018/01/E3Logo_Nav-1.svg" class="navbar-logo-e3news")
-        div.navbar-search
-            input(type="text" id="search" name="search")
-        div.navbar-filters
-            div.navbar-item.expand Conf 
-            div.navbar-item#xbox Microsoft
-            div.navbar-item#playstation Sony
-            div.navbar-item#nintendo Nintendo
-        div.navbar__burger: i.fa.fa-bars
-        a(href="#" class="vertical__link" v-on:click="toggleMenu"): div.overlay__menu
-            div.vertical__pages
-                a(href="#" class="vertical__link"): div.vertical__item.expand Conf
-                a(href="#" class="vertical__link"): div.vertical__item#xbox Microsoft
-                a(href="#" class="vertical__link"): div.vertical__item#playstation Sony
-                a(href="#" class="vertical__link"): div.vertical__item#nintendo Nintendo
-    div.container
-        div.content
-            ul.expand-content.list-group.row.conf__list
-              div.col-md-4
-                  li.list-group-item <b>EA</b>: <i>9 juin 20h00</i>
-                  li.list-group-item <b>Xbox</b> : <i>10 juin 22h00</i>
-                  li.list-group-item <b>Bethesda</b> : <i>11 juin 3h30</i>
-              div.col-md-4
-                  li.list-group-item <b>Square Enix</b> : <i>11 juin 19h00</i>
-                  li.list-group-item <b>Ubisoft</b> : <i>11 juin 22h00</i>
-                  li.list-group-item <b>PlayStation</b> : <i>12 juin 3h00</i>
-              div.col-md-4
-                  li.list-group-item <b>Nintendo Spotlight</b> : <i>12 juin 18h00</i>
-                  li.list-group-item <b>Devolver Digital</b> : <i>Non disponible</i>
-                  li.list-group-item <b>PC Gaming Show</b> : <i>Non disponible</i>
+    block content
+        div.navbar
+            img(src="https://www.e3expo.com/wp-content/uploads/2018/01/E3Logo_Nav-1.svg" class="navbar-logo-e3news")
+            div.navbar-search
+                input(type="text" id="search" name="search")
+            div.navbar-filters
+                div.navbar-item.expand Conf 
+                div.navbar-item#xbox Microsoft
+                div.navbar-item#playstation Sony
+                div.navbar-item#nintendo Nintendo
+            div.navbar__burger: i.fa.fa-bars
+            a(href="#" class="vertical__link" v-on:click="toggleMenu"): div.overlay__menu
+                div.vertical__pages
+                    a(href="#" class="vertical__link"): div.vertical__item.expand Conf
+                    a(href="#" class="vertical__link"): div.vertical__item#xbox Microsoft
+                    a(href="#" class="vertical__link"): div.vertical__item#playstation Sony
+                    a(href="#" class="vertical__link"): div.vertical__item#nintendo Nintendo
+        div.container
+            div.content
+                div.expand-content.conf__list
+                    div.conf__panel
+                        li.list-group-item <b>EA</b>: <i>9 juin 20h00</i>
+                        li.list-group-item <b>Xbox</b> : <i>10 juin 22h00</i>
+                        li.list-group-item <b>Bethesda</b> : <i>11 juin 3h30</i>
+                    div.conf__panel
+                        li.list-group-item <b>Square Enix</b> : <i>11 juin 19h00</i>
+                        li.list-group-item <b>Ubisoft</b> : <i>11 juin 22h00</i>
+                        li.list-group-item <b>PlayStation</b> : <i>12 juin 3h00</i>
+                    div.conf__panel
+                        li.list-group-item <b>Nintendo Spotlight</b> : <i>12 juin 18h00</i>
 
-            table.table.table-default.fixedtable.tableaucentre
-                thead
-                    tr
-                        th News
-                        th Date
-                        th Source
-                tbody
-                each article in articles
-                    tr
-                        td: a(href=article.link target="_blank" class="link") #{article.title}
-                        td= article.published
-                        case article.feed.name
-                            when "jeuxvideo.com": td: img(src="static/jvcom.jpg" height="40" width="50" data-toggle="tooltip" data-placement="left" title="jeuxvideo.com")
-                            when "IGN France": td: img(src="static/ign.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="IGN France")
-                            when "Dernières news - Nintendo France": td: img(src="static/nintendofr.ico" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo.fr")
-                            when "Gameblog": td: img(src="static/test.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="gameblog")
-                            when "L\'actu d\'IndieMag": td: img(src="static/indiemag.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="L\'actu d\'IndieMag")
-                            when "Gamekyo.com  News": td: img(src="static/gamekyo.jpeg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekyo.com news")
-                            when "Podcasts – Gaminfo.fr": td: img(src="static/gaminfo.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Podcasts - Gaminfo.fr")
-                            when "Nintendo-Town.fr": td: img(src="static/ntown.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo-Town.fr")
-                            default: td: img(src="static/gkult.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekult")
+                table.table.table-default.fixedtable.tableaucentre
+                    thead
+                        tr
+                            th News
+                            th Date
+                            th Source
+                    tbody
+                    each article in articles
+                        tr
+                            td: a(href=article.link target="_blank" class="link") #{article.title}
+                            td= article.published
+                            case article.feed.name
+                                when "jeuxvideo.com": td: img(src="static/jvcom.jpg" height="40" width="50" data-toggle="tooltip" data-placement="left" title="jeuxvideo.com")
+                                when "IGN France": td: img(src="static/ign.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="IGN France")
+                                when "Dernières news - Nintendo France": td: img(src="static/nintendofr.ico" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo.fr")
+                                when "Gameblog": td: img(src="static/test.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="gameblog")
+                                when "L\'actu d\'IndieMag": td: img(src="static/indiemag.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="L\'actu d\'IndieMag")
+                                when "Gamekyo.com  News": td: img(src="static/gamekyo.jpeg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekyo.com news")
+                                when "Podcasts – Gaminfo.fr": td: img(src="static/gaminfo.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Podcasts - Gaminfo.fr")
+                                when "Nintendo-Town.fr": td: img(src="static/ntown.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo-Town.fr")
+                                default: td: img(src="static/gkult.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekult")
 
     script(src='static/sort.js')
     div.footer
