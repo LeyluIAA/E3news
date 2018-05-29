@@ -21,6 +21,11 @@ $("#search").keyup(function() {
     var value = $(this).val();
     value = value.toLowerCase();
 
+$(".search").click(function(){
+    $(".search_input").toggle();
+    $(".filters-wrapper").toogle();
+});
+
     $("table tr").each(function(index) {
         if (index !== 0) {
 

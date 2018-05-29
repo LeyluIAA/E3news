@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
         //'http://fr.ign.com/feed.xml',
         'https://www.indiemag.fr/feed/rss.xml',
         //'http://www.gaminfo.fr/podcasts/feed',
-        'http://www.nintendo-town.fr/feed',
+        //'http://www.nintendo-town.fr/feed',
         'http://www.gamekyo.com/news.xml'
     ];
 

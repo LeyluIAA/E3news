@@ -86,6 +86,10 @@ body {
     font-size: 2.5rem;
   }
 
+  .logo:hover {
+    color: #89ffff;
+  }
+
   .brand {
       align-items: stretch;
       display: flex;
@@ -177,6 +181,9 @@ body {
   .search {
     cursor:pointer;
   }
+  .search_input {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 720px) {
@@ -189,10 +196,13 @@ body {
     flex-grow: 0;
     flex-shrink: 0;
     line-height: 1.5;
-    padding: .5rem .75rem;
     position: relative;
     font-family: 'quantum';
-    font-size: 2.5rem;
+    font-size: 2.3rem;
+  }
+
+  .logo:hover {
+    color: #89ffff;
   }
 
   .brand {
@@ -212,29 +222,34 @@ body {
       align-items: stretch;
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
+  }
+  .navbar-brand {
+    align-self: center;
   }
   .navbar-item {
     color: #FFF;
   }
   .navbar-end {
     display: flex;
-    justify-content: center;
+    justify-content: stretch;
     align-items: center;
   }
   .filters-wrapper {
       display: flex;
-      flex-grow: 0;
-      flex-shrink: 0;
+      width: 100%;
       line-height: 1.5;
       padding: .5rem .75rem;
-      position: relative;
       align-items: center;
+      justify-content: center;
       color: #fff;
   }
 
   .filters {
     display: flex;
-    align-items: flex-start;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
   }
 
   .control {
