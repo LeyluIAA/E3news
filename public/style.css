@@ -74,7 +74,7 @@ body {
 }
 @media screen and (min-width: 720px) {
   .logo {
-    color: #47eded;
+    /*color: #c77b4f;*/
     display:flex;
     align-items: center;
     flex-grow: 0;
@@ -84,6 +84,14 @@ body {
     position: relative;
     font-family: 'quantum';
     font-size: 2.5rem;
+  }
+
+  .E3 {
+    color: #0073C1;
+  }
+
+  .NEWS {
+    color: #F96D31;
   }
 
   .logo:hover {
@@ -98,7 +106,7 @@ body {
   }
 
   .bg_navbar {
-      background: linear-gradient(#222,#000);
+      background: #202020;/*linear-gradient(#222,#000);*/
       left: 0;
       top: 0;
       position: fixed;

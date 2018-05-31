@@ -40,7 +40,7 @@ app.get('/', function (req, res) {
         function(callback) {
             feed(rss, function(err, articles) {
                 if (err) throw err;
-
+                console.log('les articles', articles[0])
                 var articles_length = articles.length;
 
                 for (var i = 0; i < articles_length; i++) {
