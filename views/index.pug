@@ -18,6 +18,8 @@ block content
             a(class="logo" href="https://www.e3news.fr")
                 p.E3 E3
                 p.NEWS NEWS
+        div.search-bar
+            input(class="input is-rounded" type="text" placeholder="Recherchez des news" id="search")
         div.navbar-end
             div.filters-wrapper
                 div.filters
@@ -29,9 +31,7 @@ block content
                         i.fab.fa-playstation.fa-2x.playstation
                     p.control
                         i.fab.fa-nintendo-switch.fa-2x.nintendo
-                    p.control
-                        i.fas.fa-search.fa-2x.search
-            input(type="text" id="search" name="search" class="search_input")
+                
     div.container
         div.content
             ul.expand-content.list-group.row.conf__list

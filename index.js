@@ -29,7 +29,7 @@ app.get('/', function (req, res) {
         'http://www.gamekult.com/feeds/actu.html',
         'http://search.nintendo-europe.com/fr/feed/news',
         //'http://fr.ign.com/feed.xml',
-        'https://www.indiemag.fr/feed/rss.xml',
+        //'https://www.indiemag.fr/feed/rss.xml',
         //'http://www.gaminfo.fr/podcasts/feed',
         //'http://www.nintendo-town.fr/feed',
         'http://www.gamekyo.com/news.xml'
