@@ -41,6 +41,7 @@
     padding-top: 2rem;
     display: none;
 }
+
 .content {
   display: flex;
   align-items: center;
@@ -53,10 +54,8 @@
   margin-top: 0.5rem;
 }
 
-.conf__list {
-  display: none;
-  list-style: none;
-  text-decoration: none;
+.conf__panel {
+  margin: 0.3rem;
 }
 
 body {

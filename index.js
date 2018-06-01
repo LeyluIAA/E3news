@@ -39,6 +39,7 @@ app.get('/', function (req, res) {
     async.parallel([
         function(callback) {
             feed(rss, function(err, articles) {
+
                 if (err) throw err;
                 console.log('les articles', articles[0])
                 var articles_length = articles.length;
@@ -48,7 +49,7 @@ app.get('/', function (req, res) {
                     if (articles[i].feed.name.indexOf(':') > -1) {
                         articles[i].feed.name = articles[i].feed.name.split(':').join('');
                     }
-                 }
+                }
                 tab = articles;
                 callback();
             });
@@ -69,10 +70,8 @@ app.get('/', function (req, res) {
         tab_length = tab.length;
         // Format the date as i want
         for(var i = 0; i < tab_length; i++) {
-            //tab[i].published.add(2,'h');
             var new_date = tab[i].published.tz("Europe/Paris").format('D MMM HH:mm');
             tab[i].published = new_date;
-            //console.log(tab[i].title);
         }
         res.render('index', {articles: tab});
     });
