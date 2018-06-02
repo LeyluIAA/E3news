@@ -48,29 +48,13 @@ html
                   li.list-group-item <b>PC Gaming Show</b> : <i>12 juin 0h00</i>
                   li.list-group-item <b>Devolver</b> : <i>11 juin 5h00</i>
 
-            h1.title Les dernières news jeux vidéo
-            table.table.table-default.fixedtable.tableaucentre
-                thead
-                    tr
-                        th News
-                        th Date
-                        th Source
-                tbody
+            h1.title_seo Les dernières news jeux vidéo
+            div.news_card
                 each article in articles
-                    tr
-                        td: a(href=article.link target="_blank" class="link") #{article.title}
-                        td= article.published
-                        case article.feed.name
-                            when "jeuxvideo.com": td: img(src="static/jvcom.jpg" height="40" width="50" data-toggle="tooltip" data-placement="left" title="jeuxvideo.com" alt="logo de jeuxvideo.com")
-                            when "IGN France": td: img(src="static/ign.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="IGN France" alt="logo de IGN")
-                            when "Dernières news - Nintendo France": td: img(src="static/nintendofr.ico" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo.fr" alt="logo de Nintendo.fr")
-                            when "Gameblog": td: img(src="static/test.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="gameblog" alt="logo de gameblog")
-                            when "L\'actu d\'IndieMag": td: img(src="static/indiemag.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="L\'actu d\'IndieMag" alt="logo d'Indiemage")
-                            when "Gamekyo.com  News": td: img(src="static/gamekyo.jpeg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekyo.com news" alt="logo de Gamekyo")
-                            when "Podcasts – Gaminfo.fr": td: img(src="static/gaminfo.jpg" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Podcasts - Gaminfo.fr" alt="logo de Gaminfo")
-                            when "Nintendo-Town.fr": td: img(src="static/ntown.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Nintendo-Town.fr" alt="logo de Nintendo-Town.fr")
-                            default: td: img(src="static/gkult.png" height="50" width="50" data-toggle="tooltip" data-placement="left" title="Gamekult" alt="logo de Gamekult")
-
+                    div.card
+                        div.card-content
+                            p.title: a(href=article.link target="_blank" class="link") #{article.title}
+                            p.subtitle #{article.published}
     script(src='https://code.jquery.com/jquery-2.2.3.min.js')
     script(src='static/sort.js')
     div.footer
