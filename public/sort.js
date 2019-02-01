@@ -21,12 +21,12 @@ $("#search").keyup(function() {
     var value = $(this).val();
     value = value.toLowerCase();
 
-    $("table tr").each(function(index) {
+    $(".card").each(function(index) {
         if (index !== 0) {
 
             $row = $(this);
 
-            var id = $row.find("td:first").text();
+            var id = $row.find(".card-content:first").text();
             id = id.toLowerCase();
             if (id.match(value) === null) {
                 $row.hide();
@@ -52,12 +52,13 @@ var refresh = function(){
 
 $('.xbox').click(function(){
     if (!window.xboxfilter){
-        $("table tr").each(function(index) {
+        $(".card").each(function(index) {
             if (index !== 0) {
 
                 $row = $(this);
 
-                var id = $row.find("td:first").text();
+                var id = $row.find(".card-content:first").text();
+                
                 id = id.toLowerCase();
                 if (id.match('xbox') || id.match('microsoft')) {
                     $row.show();
@@ -76,12 +77,12 @@ $('.xbox').click(function(){
 
 $('.playstation').click(function(){
     if (!window.playstationfilter){
-        $("table tr").each(function(index) {
+        $(".card").each(function(index) {
             if (index !== 0) {
 
                 $row = $(this);
 
-                var id = $row.find("td:first").text();
+                var id = $row.find(".card-content:first").text();
                 id = id.toLowerCase();
                 if (id.match('playstation') || id.match('sony') || id.match('ps4')) {
                     $row.show();
@@ -100,12 +101,12 @@ $('.playstation').click(function(){
 
 $('.nintendo').click(function(){
     if (!window.nintendofilter){
-        $("table tr").each(function(index) {
+        $(".card").each(function(index) {
             if (index !== 0) {
 
                 $row = $(this);
 
-                var id = $row.find("td:first").text();
+                var id = $row.find(".card-content:first").text();
                 id = id.toLowerCase();
                 if (id.match('nintendo') || id.match('switch') || id.match('3ds') || id.match('2ds')) {
                     $row.show();
@@ -123,12 +124,12 @@ $('.nintendo').click(function(){
 });
 
 var reset = function(){
-    $("table tr").each(function(index) {
+    $(".card").each(function(index) {
         if (index !== 0) {
 
             $row = $(this);
 
-            var id = $row.find("td:first").text();
+            var id = $row.find(".card-content:first").text();
             id = id.toLowerCase();
             if (id.match('')) {
                 $row.show();

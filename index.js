@@ -40,7 +40,7 @@ app.get('/', function (req, res) {
         function(callback) {
             feed(rss, function(err, articles) {
 
-                if (err) throw err;
+                if (err) callback(err);
                 console.log('les articles', articles[0])
                 var articles_length = articles.length;
 
@@ -55,6 +55,7 @@ app.get('/', function (req, res) {
             });
         }
     ], function(err) {
+        if (err) console.error('oups:', err);
         // Fix for wrong date
         var tab_length = tab.length;
         while (tab_length > 0) {
